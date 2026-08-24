@@ -152,3 +152,32 @@
     color: var(--color-foreground);
   }
 }
+
+:root {
+  --gradient-hero: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--brand) 12%, transparent),
+    color-mix(in oklab, var(--sand) 90%, transparent)
+  );
+  --shadow-soft: 0 18px 40px -24px color-mix(in oklab, var(--brand) 45%, transparent);
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+  }
+}
+
+@utility bg-hero-gradient {
+  background-image: var(--gradient-hero);
+}
+
+@utility shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
