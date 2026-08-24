@@ -155,11 +155,11 @@
 
 :root {
   --gradient-hero: linear-gradient(
-    135deg,
-    color-mix(in oklab, var(--brand) 12%, transparent),
-    color-mix(in oklab, var(--sand) 90%, transparent)
+    180deg,
+    color-mix(in oklab, var(--brand) 5%, white),
+    white
   );
-  --shadow-soft: 0 18px 40px -24px color-mix(in oklab, var(--brand) 45%, transparent);
+  --shadow-soft: 0 18px 40px -24px color-mix(in oklab, var(--brand) 35%, transparent);
 }
 
 @layer base {
@@ -171,6 +171,8 @@
   h2,
   h3 {
     font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.02em;
   }
 }
 
@@ -180,4 +182,21 @@
 
 @utility shadow-soft {
   box-shadow: var(--shadow-soft);
+}
+
+/* Editorial heading with red bar, as on optika100 */
+@utility heading-bar {
+  position: relative;
+  padding-left: 1rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.15em;
+    bottom: 0.15em;
+    width: 4px;
+    border-radius: 2px;
+    background: var(--brand);
+  }
 }
