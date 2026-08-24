@@ -281,8 +281,13 @@ function Index() {
             вариантам линз и оправ.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Button size="lg" variant="secondary" asChild>
-              <a href="tel:+78120000000">Позвонить и записаться</a>
+            <Button
+              size="lg"
+              variant="secondary"
+              className="rounded-lg px-7 text-base font-bold text-primary"
+              asChild
+            >
+              <a href="tel:+78120000000">Позвонить и записаться →</a>
             </Button>
             <Button
               size="lg"
