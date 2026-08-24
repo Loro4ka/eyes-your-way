@@ -112,25 +112,40 @@ const faq: [string, string][] = [
 function Index() {
   return (
     <main className="bg-background text-foreground">
+      {/* Breadcrumbs */}
+      <nav aria-label="Хлебные крошки" className="border-b border-border">
+        <ol className="mx-auto flex max-w-6xl flex-wrap items-center gap-2 px-5 py-4 text-sm text-muted-foreground">
+          <li>
+            <a href="/" className="hover:text-primary">
+              Главная
+            </a>
+          </li>
+          <li aria-hidden>›</li>
+          <li className="font-medium text-foreground">Подбор очков</li>
+        </ol>
+      </nav>
+
       {/* Hero */}
       <section className="bg-hero-gradient">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-2 md:py-24">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-14 md:grid-cols-2 md:py-20">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-              Оптика · Санкт-Петербург
-            </p>
-            <h1 className="mt-4 text-4xl leading-tight md:text-5xl">
+            <h1 className="text-4xl leading-[1.05] md:text-6xl">
               Подбор очков в Санкт-Петербурге
             </h1>
-            <p className="mt-5 max-w-xl text-lg text-muted-foreground">
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
               Диагностика зрения, точное определение параметров, подбор линз и оправы,
               изготовление и проверка посадки — в одном приёме у специалиста.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button size="lg" asChild>
-                <a href="#zapis">Записаться на подбор очков</a>
+              <Button size="lg" className="rounded-lg px-7 text-base font-bold" asChild>
+                <a href="#zapis">Записаться на подбор очков →</a>
               </Button>
-              <Button size="lg" variant="outline" asChild>
+              <Button
+                size="lg"
+                variant="outline"
+                className="rounded-lg border-primary/30 px-7 text-base font-semibold text-primary hover:bg-accent"
+                asChild
+              >
                 <a href="#stoimost">Стоимость подбора</a>
               </Button>
             </div>
