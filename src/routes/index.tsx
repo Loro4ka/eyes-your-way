@@ -112,25 +112,40 @@ const faq: [string, string][] = [
 function Index() {
   return (
     <main className="bg-background text-foreground">
+      {/* Breadcrumbs */}
+      <nav aria-label="Хлебные крошки" className="border-b border-border">
+        <ol className="mx-auto flex max-w-6xl flex-wrap items-center gap-2 px-5 py-4 text-sm text-muted-foreground">
+          <li>
+            <a href="/" className="hover:text-primary">
+              Главная
+            </a>
+          </li>
+          <li aria-hidden>›</li>
+          <li className="font-medium text-foreground">Подбор очков</li>
+        </ol>
+      </nav>
+
       {/* Hero */}
       <section className="bg-hero-gradient">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-2 md:py-24">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-14 md:grid-cols-2 md:py-20">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-              Оптика · Санкт-Петербург
-            </p>
-            <h1 className="mt-4 text-4xl leading-tight md:text-5xl">
+            <h1 className="text-4xl leading-[1.05] md:text-6xl">
               Подбор очков в Санкт-Петербурге
             </h1>
-            <p className="mt-5 max-w-xl text-lg text-muted-foreground">
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
               Диагностика зрения, точное определение параметров, подбор линз и оправы,
               изготовление и проверка посадки — в одном приёме у специалиста.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button size="lg" asChild>
-                <a href="#zapis">Записаться на подбор очков</a>
+              <Button size="lg" className="rounded-lg px-7 text-base font-bold" asChild>
+                <a href="#zapis">Записаться на подбор очков →</a>
               </Button>
-              <Button size="lg" variant="outline" asChild>
+              <Button
+                size="lg"
+                variant="outline"
+                className="rounded-lg border-primary/30 px-7 text-base font-semibold text-primary hover:bg-accent"
+                asChild
+              >
                 <a href="#stoimost">Стоимость подбора</a>
               </Button>
             </div>
@@ -147,7 +162,7 @@ function Index() {
 
       {/* Стоимость */}
       <section id="stoimost" className="mx-auto max-w-6xl px-5 py-16">
-        <h2 className="text-3xl md:text-4xl">Стоимость подбора очков</h2>
+        <h2 className="heading-bar text-3xl md:text-4xl">Стоимость подбора очков</h2>
         <p className="mt-3 max-w-2xl text-muted-foreground">
           Итоговая стоимость зависит от объёма диагностики, выбранных линз и оправы.
         </p>
@@ -180,7 +195,7 @@ function Index() {
             </CardContent>
           </Card>
 
-          <Card className="bg-accent text-accent-foreground">
+          <Card className="border-primary/20 bg-accent text-accent-foreground">
             <CardContent className="flex h-full flex-col justify-between gap-6 p-6">
               <div>
                 <h3 className="text-xl">Запись на приём</h3>
@@ -210,9 +225,9 @@ function Index() {
       </section>
 
       {/* Пошагово */}
-      <section className="bg-secondary/60 py-16">
+      <section id="kak" className="border-y border-border bg-secondary py-16">
         <div className="mx-auto max-w-6xl px-5">
-          <h2 className="text-3xl md:text-4xl">Как подобрать очки — пошагово</h2>
+          <h2 className="heading-bar text-3xl md:text-4xl">Как подобрать очки — пошагово</h2>
           <ol className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map(([title, text], i) => (
               <li key={title} className="rounded-xl border border-border bg-card p-5">
@@ -228,8 +243,8 @@ function Index() {
       </section>
 
       {/* Какие очки */}
-      <section className="mx-auto max-w-6xl px-5 py-16">
-        <h2 className="text-3xl md:text-4xl">Какие очки можно подобрать</h2>
+      <section id="vidy" className="mx-auto max-w-6xl px-5 py-16">
+        <h2 className="heading-bar text-3xl md:text-4xl">Какие очки можно подобрать</h2>
         <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {glassesTypes.map(([title, text]) => (
             <Card key={title}>
@@ -243,9 +258,9 @@ function Index() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-secondary/60 py-16">
+      <section id="faq" className="border-y border-border bg-secondary py-16">
         <div className="mx-auto max-w-3xl px-5">
-          <h2 className="text-3xl md:text-4xl">Частые вопросы</h2>
+          <h2 className="heading-bar text-3xl md:text-4xl">Частые вопросы</h2>
           <Accordion type="single" collapsible className="mt-6">
             {faq.map(([q, a]) => (
               <AccordionItem key={q} value={q}>
@@ -266,8 +281,13 @@ function Index() {
             вариантам линз и оправ.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Button size="lg" variant="secondary" asChild>
-              <a href="tel:+78120000000">Позвонить и записаться</a>
+            <Button
+              size="lg"
+              variant="secondary"
+              className="rounded-lg px-7 text-base font-bold text-primary"
+              asChild
+            >
+              <a href="tel:+78120000000">Позвонить и записаться →</a>
             </Button>
             <Button
               size="lg"
