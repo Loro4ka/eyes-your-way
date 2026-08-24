@@ -150,15 +150,12 @@ function SiteHeader() {
             <li key={item.label}>
               <a
                 href={item.href}
-                className={
-                  item.active
-                    ? "inline-flex rounded-md bg-primary px-4 py-2 text-primary-foreground"
-                    : "inline-flex rounded-md px-4 py-2 text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
-                }
+                className="inline-flex rounded-md px-4 py-2 text-muted-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
               >
                 {item.label}
               </a>
             </li>
+
           ))}
         </ul>
       </nav>
