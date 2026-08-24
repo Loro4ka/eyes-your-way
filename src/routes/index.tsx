@@ -195,7 +195,7 @@ function Index() {
             </CardContent>
           </Card>
 
-          <Card className="bg-accent text-accent-foreground">
+          <Card className="border-primary/20 bg-accent text-accent-foreground">
             <CardContent className="flex h-full flex-col justify-between gap-6 p-6">
               <div>
                 <h3 className="text-xl">Запись на приём</h3>
