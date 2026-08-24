@@ -121,13 +121,15 @@ function RootShell({ children }: { children: ReactNode }) {
 }
 
 const navItems = [
-  { label: "Подбор очков", href: "/", active: true },
-  { label: "Стоимость", href: "#stoimost" },
-  { label: "Пошагово", href: "#kak" },
-  { label: "Виды очков", href: "#vidy" },
-  { label: "Вопросы", href: "#faq" },
-  { label: "Запись", href: "#zapis" },
+  { label: "Подбор очков", href: "/" },
+  { label: "Женские оправы", href: "/opravy/zhenskie" },
+  { label: "Стоимость", href: "/#stoimost" },
+  { label: "Пошагово", href: "/#kak" },
+  { label: "Виды очков", href: "/#vidy" },
+  { label: "Вопросы", href: "/#faq" },
+  { label: "Запись", href: "/#zapis" },
 ];
+
 
 function SiteHeader() {
   return (
@@ -148,15 +150,12 @@ function SiteHeader() {
             <li key={item.label}>
               <a
                 href={item.href}
-                className={
-                  item.active
-                    ? "inline-flex rounded-md bg-primary px-4 py-2 text-primary-foreground"
-                    : "inline-flex rounded-md px-4 py-2 text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
-                }
+                className="inline-flex rounded-md px-4 py-2 text-muted-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
               >
                 {item.label}
               </a>
             </li>
+
           ))}
         </ul>
       </nav>
