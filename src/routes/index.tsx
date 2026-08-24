@@ -162,7 +162,7 @@ function Index() {
 
       {/* Стоимость */}
       <section id="stoimost" className="mx-auto max-w-6xl px-5 py-16">
-        <h2 className="text-3xl md:text-4xl">Стоимость подбора очков</h2>
+        <h2 className="heading-bar text-3xl md:text-4xl">Стоимость подбора очков</h2>
         <p className="mt-3 max-w-2xl text-muted-foreground">
           Итоговая стоимость зависит от объёма диагностики, выбранных линз и оправы.
         </p>
