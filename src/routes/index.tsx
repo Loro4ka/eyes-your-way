@@ -243,8 +243,8 @@ function Index() {
       </section>
 
       {/* Какие очки */}
-      <section className="mx-auto max-w-6xl px-5 py-16">
-        <h2 className="text-3xl md:text-4xl">Какие очки можно подобрать</h2>
+      <section id="vidy" className="mx-auto max-w-6xl px-5 py-16">
+        <h2 className="heading-bar text-3xl md:text-4xl">Какие очки можно подобрать</h2>
         <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {glassesTypes.map(([title, text]) => (
             <Card key={title}>
