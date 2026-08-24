@@ -120,13 +120,86 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+const navItems = [
+  { label: "Подбор очков", href: "/", active: true },
+  { label: "Стоимость", href: "#stoimost" },
+  { label: "Пошагово", href: "#kak" },
+  { label: "Виды очков", href: "#vidy" },
+  { label: "Вопросы", href: "#faq" },
+  { label: "Запись", href: "#zapis" },
+];
+
+function SiteHeader() {
+  return (
+    <header className="border-b border-border bg-background">
+      <div className="mx-auto flex max-w-6xl items-center gap-4 px-5 py-5">
+        <a href="/" className="flex items-center gap-2" aria-label="Оптика 100% — на главную">
+          <span className="rounded-sm border-2 border-primary px-2 py-0.5 text-xl font-extrabold leading-none tracking-tight text-primary">
+            100%
+          </span>
+          <span className="text-xl font-extrabold uppercase tracking-tight text-foreground">
+            Оптика
+          </span>
+        </a>
+      </div>
+      <nav className="border-t border-border">
+        <ul className="mx-auto flex max-w-6xl flex-wrap items-center gap-1 px-5 py-3 text-sm font-semibold">
+          {navItems.map((item) => (
+            <li key={item.label}>
+              <a
+                href={item.href}
+                className={
+                  item.active
+                    ? "inline-flex rounded-md bg-primary px-4 py-2 text-primary-foreground"
+                    : "inline-flex rounded-md px-4 py-2 text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                }
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </header>
+  );
+}
+
+function SiteFooter() {
+  return (
+    <footer className="border-t border-border bg-secondary">
+      <div className="mx-auto grid max-w-6xl gap-6 px-5 py-10 text-sm text-muted-foreground md:grid-cols-3">
+        <div>
+          <p className="font-extrabold uppercase tracking-tight text-foreground">Оптика 100%</p>
+          <p className="mt-2">Подбор очков и линз в Санкт-Петербурге.</p>
+        </div>
+        <div>
+          <p className="font-semibold text-foreground">Запись</p>
+          <a href="tel:+78120000000" className="mt-2 inline-block hover:text-primary">
+            8 (812) 000-00-00
+          </a>
+        </div>
+        <div>
+          <p className="font-semibold text-foreground">Салоны</p>
+          <p className="mt-2">Центральный, Выборгский и Московский районы</p>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <div className="flex min-h-screen flex-col bg-background">
+        <SiteHeader />
+        <div className="flex-1">
+          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+          <Outlet />
+        </div>
+        <SiteFooter />
+      </div>
     </QueryClientProvider>
   );
 }
