@@ -258,9 +258,9 @@ function Index() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-secondary/60 py-16">
+      <section id="faq" className="border-y border-border bg-secondary py-16">
         <div className="mx-auto max-w-3xl px-5">
-          <h2 className="text-3xl md:text-4xl">Частые вопросы</h2>
+          <h2 className="heading-bar text-3xl md:text-4xl">Частые вопросы</h2>
           <Accordion type="single" collapsible className="mt-6">
             {faq.map(([q, a]) => (
               <AccordionItem key={q} value={q}>
