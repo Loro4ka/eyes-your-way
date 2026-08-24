@@ -156,7 +156,6 @@ function Index() {
           <Card className="lg:col-span-2">
             <CardContent className="p-6">
               <dl className="divide-y divide-border">
-                {priceRows.map(([]) => null) && null}
                 {priceRows.map((row) => (
                   <div
                     key={row.label}
