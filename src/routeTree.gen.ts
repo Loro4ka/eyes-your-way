@@ -10,33 +10,43 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as OpravyZhenskieRouteImport } from './routes/opravy.zhenskie'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OpravyZhenskieRoute = OpravyZhenskieRouteImport.update({
+  id: '/opravy/zhenskie',
+  path: '/opravy/zhenskie',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/opravy/zhenskie': typeof OpravyZhenskieRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/opravy/zhenskie': typeof OpravyZhenskieRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/opravy/zhenskie': typeof OpravyZhenskieRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/opravy/zhenskie'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/opravy/zhenskie'
+  id: '__root__' | '/' | '/opravy/zhenskie'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  OpravyZhenskieRoute: typeof OpravyZhenskieRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +58,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/opravy/zhenskie': {
+      id: '/opravy/zhenskie'
+      path: '/opravy/zhenskie'
+      fullPath: '/opravy/zhenskie'
+      preLoaderRoute: typeof OpravyZhenskieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  OpravyZhenskieRoute: OpravyZhenskieRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

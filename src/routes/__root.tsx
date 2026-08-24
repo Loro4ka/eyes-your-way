@@ -121,13 +121,15 @@ function RootShell({ children }: { children: ReactNode }) {
 }
 
 const navItems = [
-  { label: "Подбор очков", href: "/", active: true },
-  { label: "Стоимость", href: "#stoimost" },
-  { label: "Пошагово", href: "#kak" },
-  { label: "Виды очков", href: "#vidy" },
-  { label: "Вопросы", href: "#faq" },
-  { label: "Запись", href: "#zapis" },
+  { label: "Подбор очков", href: "/" },
+  { label: "Женские оправы", href: "/opravy/zhenskie" },
+  { label: "Стоимость", href: "/#stoimost" },
+  { label: "Пошагово", href: "/#kak" },
+  { label: "Виды очков", href: "/#vidy" },
+  { label: "Вопросы", href: "/#faq" },
+  { label: "Запись", href: "/#zapis" },
 ];
+
 
 function SiteHeader() {
   return (
