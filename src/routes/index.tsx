@@ -225,9 +225,9 @@ function Index() {
       </section>
 
       {/* Пошагово */}
-      <section className="bg-secondary/60 py-16">
+      <section id="kak" className="border-y border-border bg-secondary py-16">
         <div className="mx-auto max-w-6xl px-5">
-          <h2 className="text-3xl md:text-4xl">Как подобрать очки — пошагово</h2>
+          <h2 className="heading-bar text-3xl md:text-4xl">Как подобрать очки — пошагово</h2>
           <ol className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map(([title, text], i) => (
               <li key={title} className="rounded-xl border border-border bg-card p-5">
