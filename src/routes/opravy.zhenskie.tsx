@@ -419,7 +419,31 @@ function WomenFramesPage() {
         </div>
       </section>
 
+      {/* Перелинковка */}
+      <section className="mx-auto max-w-6xl px-5 py-14">
+        <h2 className="heading-bar text-3xl md:text-4xl">Смотрите также</h2>
+        <div className="mt-8 grid gap-5 md:grid-cols-3">
+          {([
+            ["Подбор очков в Санкт-Петербурге", "Как проходит приём, диагностика и подбор линз.", "/", undefined],
+            ["Стоимость подбора очков", "Что входит в услугу и сколько занимает по времени.", "/", "stoimost"],
+            ["Какие очки можно подобрать", "Для компьютера, вождения, прогрессивные и детские.", "/", "vidy"],
+          ] as [string, string, "/", string | undefined][]).map(([title, text, to, hash]) => (
+            <Card key={title} className="transition-shadow hover:shadow-md">
+              <CardContent className="p-5">
+                <h3 className="text-lg font-semibold">
+                  <Link to={to} hash={hash} className="hover:text-primary">
+                    {title}
+                  </Link>
+                </h3>
+                <p className="mt-2 text-sm text-muted-foreground">{text}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
       {/* FAQ */}
+
       <section id="faq" className="border-y border-border bg-secondary py-14">
         <div className="mx-auto max-w-3xl px-5">
           <h2 className="heading-bar text-3xl md:text-4xl">Частые вопросы</h2>
