@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Accordion,
   AccordionContent,
@@ -256,6 +256,53 @@ function Index() {
           ))}
         </div>
       </section>
+
+      {/* Перелинковка */}
+      <section className="border-t border-border bg-secondary py-14">
+        <div className="mx-auto max-w-6xl px-5">
+          <h2 className="heading-bar text-3xl md:text-4xl">Каталог оправ</h2>
+          <div className="mt-8 grid gap-5 md:grid-cols-3">
+            <Card className="transition-shadow hover:shadow-md">
+              <CardContent className="p-5">
+                <h3 className="text-lg font-semibold">
+                  <Link to="/opravy/zhenskie" className="hover:text-primary">
+                    Женские оправы для очков
+                  </Link>
+                </h3>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Круглые, овальные, cat-eye, металл и титан — от 1 500 ₽, с фильтрами по
+                  бренду, цвету и размеру.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="transition-shadow hover:shadow-md">
+              <CardContent className="p-5">
+                <h3 className="text-lg font-semibold">
+                  <Link to="/opravy/zhenskie" hash="katalog" className="hover:text-primary">
+                    Каталог моделей и цены
+                  </Link>
+                </h3>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Подберите оправу по цене и характеристикам, а примерка в салоне — бесплатно.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="transition-shadow hover:shadow-md">
+              <CardContent className="p-5">
+                <h3 className="text-lg font-semibold">
+                  <Link to="/opravy/zhenskie" hash="faq" className="hover:text-primary">
+                    Как выбрать оправу
+                  </Link>
+                </h3>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Формы под тип лица, материалы и ответы на частые вопросы об оправах.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
 
       {/* FAQ */}
       <section id="faq" className="border-y border-border bg-secondary py-16">

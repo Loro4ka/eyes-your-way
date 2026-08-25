@@ -9,6 +9,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import heroFrames from "@/assets/hero-women-frames.jpg";
+
 
 export const Route = createFileRoute("/opravy/zhenskie")({
   head: () => ({
@@ -162,15 +164,70 @@ function WomenFramesPage() {
         </ol>
       </nav>
 
-      {/* Intro */}
-      <section className="bg-hero-gradient">
-        <div className="mx-auto max-w-6xl px-5 py-12 md:py-16">
-          <h1 className="max-w-3xl text-4xl leading-[1.05] md:text-5xl">
-            Женские оправы для очков
-          </h1>
-          <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
+      {/* Hero */}
+      <section className="relative overflow-hidden border-b border-border bg-secondary">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-14 md:py-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+          <div>
+            <div className="flex flex-wrap gap-2">
+              {["Более 300 моделей", "Примерка бесплатно", "От 1 500 ₽"].map((chip) => (
+                <span
+                  key={chip}
+                  className="rounded-full border border-primary/30 bg-background px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary"
+                >
+                  {chip}
+                </span>
+              ))}
+            </div>
+            <h1 className="mt-5 text-4xl leading-[1.02] md:text-6xl">
+              Женские оправы
+              <span className="block text-primary">для очков</span>
+            </h1>
+            <p className="mt-5 max-w-xl text-[17px] leading-relaxed text-muted-foreground">
+              Круглые, овальные, cat-eye, тонкий металл и титан — в салонах Оптики 100% в
+              Санкт-Петербурге. Примерьте понравившуюся модель и сразу закажите в неё линзы.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button size="lg" className="rounded-lg px-7 text-base font-bold" asChild>
+                <a href="#katalog">Смотреть каталог →</a>
+              </Button>
+              <Button size="lg" variant="outline" className="rounded-lg px-7 text-base" asChild>
+                <Link to="/" hash="zapis">
+                  Подобрать оправу
+                </Link>
+              </Button>
+            </div>
+            <dl className="mt-10 grid max-w-md grid-cols-3 gap-4 border-t border-border pt-6">
+              {[
+                ["5", "брендов"],
+                ["3", "салона в СПб"],
+                ["1 день", "на примерку"],
+              ].map(([value, label]) => (
+                <div key={label}>
+                  <dt className="text-2xl font-extrabold text-foreground">{value}</dt>
+                  <dd className="text-xs text-muted-foreground">{label}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          <div className="relative">
+            <div className="absolute -right-10 -top-10 hidden h-48 w-48 rounded-full bg-primary/10 blur-3xl lg:block" />
+            <img
+              src={heroFrames}
+              alt="Женские оправы для очков: cat-eye, прозрачный ацетат и тонкий золотистый металл"
+              width={1280}
+              height={960}
+              className="relative w-full rounded-2xl object-cover shadow-xl"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Текст */}
+      <section className="mx-auto max-w-6xl px-5 py-14">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
             <div className="max-w-3xl space-y-4 text-[15px] leading-relaxed text-muted-foreground">
-              <h2 className="text-xl font-extrabold text-foreground">
+              <h2 className="heading-bar text-2xl font-extrabold text-foreground md:text-3xl">
                 Женские оправы для очков в Санкт-Петербурге
               </h2>
               <p>
@@ -202,14 +259,21 @@ function WomenFramesPage() {
                 <strong className="text-foreground">Цены.</strong> Женские оправы — от 1 500 ₽,
                 металлические и ацетатные модели — 2 200–3 500 ₽, дизайнерские и титановые —
                 от 5 500 ₽. Стоимость готовых очков складывается из оправы и линз, поэтому
-                итоговую сумму специалист считает на приёме.
+                итоговую сумму специалист считает на приёме — подробности в разделе{" "}
+                <Link to="/" hash="stoimost" className="font-semibold text-primary underline">
+                  стоимость подбора очков
+                </Link>
+                .
               </p>
               <p>
                 <strong className="text-foreground">Как выбрать.</strong> Сначала рецепт, потом
                 форма: при высоких диоптриях нужна компактная оправа с небольшим световым
-                проёмом, для прогрессивных линз — достаточная высота. Далее смотрим на
-                пропорции лица, ширину переносицы и посадку — оправа не должна сползать и
-                давить за ушами.
+                проёмом, для прогрессивных линз — достаточная высота. Как проходит приём, мы
+                описали{" "}
+                <Link to="/" hash="kak" className="font-semibold text-primary underline">
+                  пошагово в подборе очков
+                </Link>
+                .
               </p>
               <p>
                 <strong className="text-foreground">Где примерить.</strong> В салонах в
@@ -239,9 +303,9 @@ function WomenFramesPage() {
                 </p>
               </CardContent>
             </Card>
-          </div>
         </div>
       </section>
+
 
       {/* Категории */}
       <section id="kategorii" className="border-y border-border bg-secondary py-14">
@@ -355,7 +419,32 @@ function WomenFramesPage() {
         </div>
       </section>
 
+      {/* Перелинковка */}
+      <section className="mx-auto max-w-6xl px-5 py-14">
+        <h2 className="heading-bar text-3xl md:text-4xl">Смотрите также</h2>
+        <div className="mt-8 grid gap-5 md:grid-cols-3">
+          {([
+            ["Подбор очков в Санкт-Петербурге", "Как проходит приём, диагностика и подбор линз.", "kak"],
+            ["Стоимость подбора очков", "Что входит в услугу и сколько занимает по времени.", "stoimost"],
+            ["Какие очки можно подобрать", "Для компьютера, вождения, прогрессивные и детские.", "vidy"],
+          ] as [string, string, string][]).map(([title, text, hash]) => (
+            <Card key={title} className="transition-shadow hover:shadow-md">
+              <CardContent className="p-5">
+                <h3 className="text-lg font-semibold">
+                  <Link to="/" hash={hash} className="hover:text-primary">
+                    {title}
+                  </Link>
+                </h3>
+
+                <p className="mt-2 text-sm text-muted-foreground">{text}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
       {/* FAQ */}
+
       <section id="faq" className="border-y border-border bg-secondary py-14">
         <div className="mx-auto max-w-3xl px-5">
           <h2 className="heading-bar text-3xl md:text-4xl">Частые вопросы</h2>

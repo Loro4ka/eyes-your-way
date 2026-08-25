@@ -166,25 +166,63 @@ function SiteHeader() {
 function SiteFooter() {
   return (
     <footer className="border-t border-border bg-secondary">
-      <div className="mx-auto grid max-w-6xl gap-6 px-5 py-10 text-sm text-muted-foreground md:grid-cols-3">
+      <div className="mx-auto grid max-w-6xl gap-8 px-5 py-10 text-sm text-muted-foreground md:grid-cols-4">
         <div>
           <p className="font-extrabold uppercase tracking-tight text-foreground">Оптика 100%</p>
           <p className="mt-2">Подбор очков и линз в Санкт-Петербурге.</p>
+        </div>
+        <div>
+          <p className="font-semibold text-foreground">Страницы</p>
+          <ul className="mt-2 space-y-1">
+            <li>
+              <Link to="/" className="hover:text-primary">
+                Подбор очков
+              </Link>
+            </li>
+            <li>
+              <Link to="/opravy/zhenskie" className="hover:text-primary">
+                Женские оправы
+              </Link>
+            </li>
+            <li>
+              <Link to="/opravy/zhenskie" hash="katalog" className="hover:text-primary">
+                Каталог оправ
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <p className="font-semibold text-foreground">Услуги</p>
+          <ul className="mt-2 space-y-1">
+            <li>
+              <Link to="/" hash="stoimost" className="hover:text-primary">
+                Стоимость подбора
+              </Link>
+            </li>
+            <li>
+              <Link to="/" hash="vidy" className="hover:text-primary">
+                Виды очков
+              </Link>
+            </li>
+            <li>
+              <Link to="/" hash="faq" className="hover:text-primary">
+                Частые вопросы
+              </Link>
+            </li>
+          </ul>
         </div>
         <div>
           <p className="font-semibold text-foreground">Запись</p>
           <a href="tel:+78120000000" className="mt-2 inline-block hover:text-primary">
             8 (812) 000-00-00
           </a>
-        </div>
-        <div>
-          <p className="font-semibold text-foreground">Салоны</p>
           <p className="mt-2">Центральный, Выборгский и Московский районы</p>
         </div>
       </div>
     </footer>
   );
 }
+
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
