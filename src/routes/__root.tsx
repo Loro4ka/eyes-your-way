@@ -123,6 +123,7 @@ function RootShell({ children }: { children: ReactNode }) {
 const navItems = [
   { label: "Подбор очков", href: "/" },
   { label: "Женские оправы", href: "/opravy/zhenskie" },
+  { label: "Линзы Stellest", href: "/stellest-katalog-s-linzami" },
   { label: "Стоимость", href: "/#stoimost" },
   { label: "Пошагово", href: "/#kak" },
   { label: "Виды очков", href: "/#vidy" },
