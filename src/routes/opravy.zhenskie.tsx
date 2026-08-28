@@ -392,7 +392,7 @@ function WomenFramesPage() {
             <p className="text-sm text-muted-foreground">Найдено моделей: {visible.length}</p>
             <div className="mt-4 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
               {visible.map((f) => (
-                <Card key={f.model} className="overflow-hidden">
+                <Card key={f.model} className="overflow-hidden pt-0">
                   <div className="border-b border-border bg-secondary">
                     <img
                       src={shapeImage(f.shape)}
