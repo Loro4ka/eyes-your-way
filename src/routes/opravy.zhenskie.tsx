@@ -10,6 +10,29 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import heroFrames from "@/assets/hero-women-frames.jpg";
+import frameRound from "@/assets/frame-round.jpg";
+import frameCatEye from "@/assets/frame-cateye.jpg";
+import frameRect from "@/assets/frame-rect.jpg";
+import frameOval from "@/assets/frame-oval.jpg";
+import frameGeo from "@/assets/frame-geo.jpg";
+
+function shapeImage(shape: string) {
+  switch (shape) {
+    case "Круглые":
+      return frameRound;
+    case "Cat-eye":
+    case "Кошачий глаз":
+      return frameCatEye;
+    case "Овальные":
+      return frameOval;
+    case "Многоугольные":
+    case "Квадратные":
+      return frameGeo;
+    default:
+      return frameRect;
+  }
+}
+
 
 
 export const Route = createFileRoute("/opravy/zhenskie")({
