@@ -10,6 +10,29 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import heroFrames from "@/assets/hero-women-frames.jpg";
+import frameRound from "@/assets/frame-round.jpg";
+import frameCatEye from "@/assets/frame-cateye.jpg";
+import frameRect from "@/assets/frame-rect.jpg";
+import frameOval from "@/assets/frame-oval.jpg";
+import frameGeo from "@/assets/frame-geo.jpg";
+
+function shapeImage(shape: string) {
+  switch (shape) {
+    case "Круглые":
+      return frameRound;
+    case "Cat-eye":
+    case "Кошачий глаз":
+      return frameCatEye;
+    case "Овальные":
+      return frameOval;
+    case "Многоугольные":
+    case "Квадратные":
+      return frameGeo;
+    default:
+      return frameRect;
+  }
+}
+
 
 
 export const Route = createFileRoute("/opravy/zhenskie")({
@@ -67,7 +90,10 @@ const frames: Frame[] = [
   { model: "MARIO ROSSI MR44", brand: "Mario Rossi", shape: "Круглые", material: "Титан", color: "Серебристый", size: "S", price: 5600 },
 ];
 
+const brands = Array.from(new Set(frames.map((f) => f.brand)));
+
 const categories: [string, string][] = [
+
   ["Круглые", "Мягкая ретро-геометрия, хорошо смотрятся на лицах с угловатыми чертами."],
   ["Овальные", "Самая универсальная форма: подходит почти под любые пропорции лица."],
   ["Прямоугольные", "Строгие модели для работы и деловых образов, вытягивают округлое лицо."],
@@ -204,18 +230,22 @@ function WomenFramesPage() {
                 </Link>
               </Button>
             </div>
-            <dl className="mt-10 grid max-w-md grid-cols-3 gap-4 border-t border-border pt-6">
-              {[
-                ["6", "брендов"],
-                ["3", "салона в СПб"],
-                ["1 день", "на примерку"],
-              ].map(([value, label]) => (
-                <div key={label}>
-                  <dt className="text-2xl font-extrabold text-foreground">{value}</dt>
-                  <dd className="text-xs text-muted-foreground">{label}</dd>
-                </div>
-              ))}
-            </dl>
+            <nav aria-label="Бренды женских оправ" className="mt-10 border-t border-border pt-6">
+              <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                Бренды в наличии
+              </p>
+              <ol className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-base font-extrabold uppercase tracking-tight text-foreground">
+                {brands.map((brand, i) => (
+                  <li key={brand} className="flex items-center gap-3">
+                    {i > 0 && <span className="text-primary/50">›</span>}
+                    <a href="#katalog" className="transition-colors hover:text-primary">
+                      {brand}
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+
           </div>
 
           <div className="relative">
@@ -392,8 +422,19 @@ function WomenFramesPage() {
             <p className="text-sm text-muted-foreground">Найдено моделей: {visible.length}</p>
             <div className="mt-4 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
               {visible.map((f) => (
-                <Card key={f.model}>
+                <Card key={f.model} className="overflow-hidden pt-0">
+                  <div className="border-b border-border bg-secondary">
+                    <img
+                      src={shapeImage(f.shape)}
+                      alt={`Женская оправа ${f.model}, форма: ${f.shape}, ${f.material.toLowerCase()}`}
+                      width={800}
+                      height={600}
+                      loading="lazy"
+                      className="h-40 w-full object-cover"
+                    />
+                  </div>
                   <CardContent className="flex h-full flex-col gap-3 p-5">
+
                     <div className="flex items-start justify-between gap-2">
                       <div>
                         <p className="text-xs font-semibold uppercase tracking-wide text-primary">
