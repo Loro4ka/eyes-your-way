@@ -206,7 +206,7 @@ function WomenFramesPage() {
             </div>
             <dl className="mt-10 grid max-w-md grid-cols-3 gap-4 border-t border-border pt-6">
               {[
-                ["5", "брендов"],
+                ["6", "брендов"],
                 ["3", "салона в СПб"],
                 ["1 день", "на примерку"],
               ].map(([value, label]) => (
