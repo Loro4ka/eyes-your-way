@@ -414,7 +414,7 @@ function StellestPage() {
           <h2 className="heading-bar text-xl font-extrabold md:text-2xl">Смотрите также</h2>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {[
-              { title: "Подбор очков в СПб", text: "Диагностика зрения и подбор очков пошагово.", to: "/" as const, hash: undefined },
+              { title: "Подбор очков в СПб", text: "Диагностика зрения и подбор очков пошагово.", to: "/" as const, hash: "" },
               { title: "Стоимость подбора", text: "Что входит в приём и как считается цена.", to: "/" as const, hash: "stoimost" },
               { title: "Каталог оправ", text: "Оправы для очков: формы, материалы, цены.", to: "/opravy/zhenskie" as const, hash: "katalog" },
             ].map((card) => (
