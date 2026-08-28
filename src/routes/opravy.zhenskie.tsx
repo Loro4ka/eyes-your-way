@@ -45,6 +45,14 @@ type Frame = {
 };
 
 const frames: Frame[] = [
+  { model: "LION`S HEART SN240317-510", brand: "LION`S HEART", shape: "Классические", material: "Металл", color: "Чёрный", size: "M", price: 3900 },
+  { model: "LION`S HEART SN231123-2", brand: "LION`S HEART", shape: "Кошачий глаз", material: "Металл", color: "Золотой", size: "M", price: 3900 },
+  { model: "LION`S HEART SN231129-2", brand: "LION`S HEART", shape: "Круглые", material: "Металл", color: "Бронзовый", size: "S", price: 3900 },
+  { model: "LION`S HEART SN250102-3", brand: "LION`S HEART", shape: "Многоугольные", material: "Металл", color: "Серебристый", size: "M", price: 3900 },
+  { model: "LION`S HEART SN250886-2", brand: "LION`S HEART", shape: "Овальные", material: "Металл", color: "Зелёный", size: "S", price: 4000 },
+  { model: "LION`S HEART SN230420-1", brand: "LION`S HEART", shape: "Классические", material: "Пластик", color: "Синий", size: "L", price: 4000 },
+  { model: "LION`S HEART SN230896-1", brand: "LION`S HEART", shape: "Кошачий глаз", material: "Металл", color: "Фиолетовый", size: "M", price: 4400 },
+  { model: "LION`S HEART SN230084-3", brand: "LION`S HEART", shape: "Круглые", material: "Титан", color: "Золотой", size: "S", price: 5000 },
   { model: "DACCHI D1042", brand: "DACCHI", shape: "Прямоугольные", material: "Пластик", color: "Чёрный", size: "M", price: 1500 },
   { model: "DACCHI D3218", brand: "DACCHI", shape: "Cat-eye", material: "Пластик", color: "Коричневый", size: "S", price: 1800 },
   { model: "DACCHI D8110", brand: "DACCHI", shape: "Овальные", material: "Металл", color: "Золотой", size: "M", price: 1900 },
