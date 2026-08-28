@@ -392,8 +392,19 @@ function WomenFramesPage() {
             <p className="text-sm text-muted-foreground">Найдено моделей: {visible.length}</p>
             <div className="mt-4 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
               {visible.map((f) => (
-                <Card key={f.model}>
+                <Card key={f.model} className="overflow-hidden">
+                  <div className="border-b border-border bg-secondary">
+                    <img
+                      src={shapeImage(f.shape)}
+                      alt={`Женская оправа ${f.model}, форма: ${f.shape}, ${f.material.toLowerCase()}`}
+                      width={800}
+                      height={600}
+                      loading="lazy"
+                      className="h-40 w-full object-cover"
+                    />
+                  </div>
                   <CardContent className="flex h-full flex-col gap-3 p-5">
+
                     <div className="flex items-start justify-between gap-2">
                       <div>
                         <p className="text-xs font-semibold uppercase tracking-wide text-primary">
