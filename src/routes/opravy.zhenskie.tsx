@@ -204,18 +204,22 @@ function WomenFramesPage() {
                 </Link>
               </Button>
             </div>
-            <dl className="mt-10 grid max-w-md grid-cols-3 gap-4 border-t border-border pt-6">
-              {[
-                ["6", "брендов"],
-                ["3", "салона в СПб"],
-                ["1 день", "на примерку"],
-              ].map(([value, label]) => (
-                <div key={label}>
-                  <dt className="text-2xl font-extrabold text-foreground">{value}</dt>
-                  <dd className="text-xs text-muted-foreground">{label}</dd>
-                </div>
-              ))}
-            </dl>
+            <nav aria-label="Бренды женских оправ" className="mt-10 border-t border-border pt-6">
+              <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                Бренды в наличии
+              </p>
+              <ol className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-base font-extrabold uppercase tracking-tight text-foreground">
+                {brands.map((brand, i) => (
+                  <li key={brand} className="flex items-center gap-3">
+                    {i > 0 && <span className="text-primary/50">›</span>}
+                    <a href="#katalog" className="transition-colors hover:text-primary">
+                      {brand}
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+
           </div>
 
           <div className="relative">
