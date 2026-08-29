@@ -423,13 +423,12 @@ function WomenFramesPage() {
                 примерить и сразу заказать в неё линзы.
               </p>
               <p>
-                <strong className="text-foreground">Бренды.</strong> LION`S HEART — самая большая
-                женская коллекция в салоне: более 50 моделей, преимущественно тонкий металл, а
-                также пластик и титан, классические, круглые, многоугольные, овальные формы и
-                кошачий глаз, цены 3 900–5 000 ₽. DACCHI и Nikitana — доступный сегмент с
-                большим выбором форм. Mario Rossi — аккуратные металлические и ацетатные
-                модели. Tropical и Ana Hickmann — дизайнерские коллекции с яркими цветами и
-                декором на заушниках.
+                <strong className="text-foreground">Бренды.</strong> В наличии более 70 брендов.
+                Самые большие коллекции — GUESS, LION`S HEART (23 женские модели: тонкий металл,
+                пластик и титан, цены 3 900–5 000 ₽), FURLA, ST.LOUISE, YALEA, POLAROID, MAX&CO
+                и OKULA. Представлены и дизайнерские марки: CAROLINA HERRERA, ESCADA, MARC
+                JACOBS, MAX MARA, SILHOUETTE, WOOW, BLUMARINE, ETNIA BARCELONA. Полный список
+                брендов с количеством моделей — на первом экране страницы.
               </p>
               <p>
                 <strong className="text-foreground">Формы.</strong> Круглые, овальные,
