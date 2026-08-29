@@ -193,6 +193,11 @@ function WomenFramesPage() {
   const toggle = (key: FilterKey, value: string) =>
     setFilters((prev) => ({ ...prev, [key]: prev[key] === value ? null : value }));
 
+  const selectBrand = (brand: string) => {
+    setFilters((prev) => ({ ...prev, brand: prev.brand === brand ? null : brand }));
+    document.getElementById("katalog")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   const hasFilters = price !== null || Object.values(filters).some(Boolean);
 
   return (
