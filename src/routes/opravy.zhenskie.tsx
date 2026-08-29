@@ -88,22 +88,109 @@ const frames: Frame[] = [
   { model: "ANA HICKMANN AH6412", brand: "Ana Hickmann", shape: "Cat-eye", material: "Титан", color: "Золотой", size: "M", price: 7900 },
   { model: "ANA HICKMANN AH1398", brand: "Ana Hickmann", shape: "Квадратные", material: "Ацетат", color: "Чёрный", size: "L", price: 8400 },
   { model: "MARIO ROSSI MR44", brand: "Mario Rossi", shape: "Круглые", material: "Титан", color: "Серебристый", size: "S", price: 5600 },
+  { model: "GUESS GU2857", brand: "GUESS", shape: "Cat-eye", material: "Ацетат", color: "Чёрный", size: "M", price: 6900 },
+  { model: "GUESS GU50110", brand: "GUESS", shape: "Квадратные", material: "Пластик", color: "Коричневый", size: "L", price: 6400 },
+  { model: "FURLA VFU499", brand: "FURLA", shape: "Овальные", material: "Ацетат", color: "Розовый", size: "M", price: 8900 },
+  { model: "FURLA VFU352", brand: "FURLA", shape: "Прямоугольные", material: "Металл", color: "Золотой", size: "M", price: 8400 },
+  { model: "ST.LOUISE SL8421", brand: "ST.LOUISE", shape: "Классические", material: "Металл", color: "Серебристый", size: "M", price: 4200 },
+  { model: "YALEA YA047", brand: "YALEA", shape: "Круглые", material: "Ацетат", color: "Прозрачный", size: "S", price: 7200 },
+  { model: "OKULA OK118", brand: "OKULA", shape: "Квадратные", material: "Пластик", color: "Синий", size: "M", price: 3600 },
+  { model: "POLAROID PLD D414", brand: "POLAROID", shape: "Прямоугольные", material: "Пластик", color: "Чёрный", size: "M", price: 4400 },
+  { model: "MAX&CO MO5123", brand: "MAX&CO", shape: "Cat-eye", material: "Ацетат", color: "Коричневый", size: "M", price: 9400 },
+  { model: "ESCADA ES1012", brand: "ESCADA", shape: "Овальные", material: "Металл", color: "Золотой", size: "S", price: 11200 },
+  { model: "CAROLINA HERRERA CH0042", brand: "CAROLINA HERRERA", shape: "Квадратные", material: "Ацетат", color: "Чёрный", size: "M", price: 12800 },
+  { model: "WILLIAM MORRIS WM50134", brand: "WILLIAM MORRIS", shape: "Круглые", material: "Металл", color: "Бронзовый", size: "S", price: 6800 },
+  { model: "O.D.L OD2210", brand: "O.D.L", shape: "Прямоугольные", material: "Металл", color: "Серебристый", size: "M", price: 3900 },
+  { model: "PIERRE CARDIN PC6879", brand: "PIERRE CARDIN", shape: "Классические", material: "Металл", color: "Чёрный", size: "M", price: 5900 },
+  { model: "MARC JACOBS MJ1019", brand: "MARC JACOBS", shape: "Cat-eye", material: "Ацетат", color: "Фиолетовый", size: "M", price: 11900 },
+  { model: "VOGUE VO5286", brand: "VOGUE", shape: "Квадратные", material: "Пластик", color: "Прозрачный", size: "S", price: 5400 },
+  { model: "SILHOUETTE SPX 1608", brand: "SILHOUETTE", shape: "Овальные", material: "Титан", color: "Серебристый", size: "M", price: 18900 },
+  { model: "TOUS VTOA52", brand: "TOUS", shape: "Круглые", material: "Ацетат", color: "Розовый", size: "S", price: 8600 },
+  { model: "WOOW WOOLAA1", brand: "WOOW", shape: "Многоугольные", material: "Ацетат", color: "Зелёный", size: "M", price: 13400 },
+  { model: "BLUMARINE BM5012", brand: "BLUMARINE", shape: "Cat-eye", material: "Металл", color: "Золотой", size: "M", price: 9800 },
+  { model: "LAURA BIAGIOTTI LB505", brand: "LAURA BIAGIOTTI", shape: "Овальные", material: "Металл", color: "Бронзовый", size: "M", price: 6200 },
+  { model: "MAX MARA MM1390", brand: "MAX MARA", shape: "Прямоугольные", material: "Ацетат", color: "Чёрный", size: "M", price: 12400 },
 ];
 
-const brandCounts = frames.reduce<Record<string, number>>((acc, f) => {
-  acc[f.brand] = (acc[f.brand] ?? 0) + 1;
-  return acc;
-}, {});
+// Полный список брендов салона с количеством моделей в наличии.
+// Сортировка: LION`S HEART первым, далее по убыванию количества.
+const brandList: [string, number][] = [
+  ["LION`S HEART", 23],
+  ["GUESS", 36],
+  ["FURLA", 20],
+  ["ST.LOUISE", 19],
+  ["YALEA", 17],
+  ["OKULA", 16],
+  ["POLAROID", 16],
+  ["MAX&CO", 16],
+  ["ESCADA", 15],
+  ["CAROLINA HERRERA", 14],
+  ["WILLIAM MORRIS", 12],
+  ["ANA HICKMANN", 11],
+  ["O.D.L", 11],
+  ["PIERRE CARDIN", 11],
+  ["MARC JACOBS", 10],
+  ["VOGUE", 10],
+  ["SILHOUETTE", 9],
+  ["TOUS", 9],
+  ["WOOW", 9],
+  ["BLUMARINE", 8],
+  ["LAURA BIAGIOTTI", 7],
+  ["MAX MARA", 7],
+  ["BELUTTI", 6],
+  ["ENNI MARCO", 6],
+  ["ETNIA BARCELONA", 6],
+  ["MEREL", 6],
+  ["VON BOGEN", 6],
+  ["HICKMANN", 5],
+  ["FOR ART'S SAKE", 5],
+  ["SAFILO SEVENTH STREET", 5],
+  ["PRODESIGN", 5],
+  ["NINA RICCI", 5],
+  ["STEPPER", 5],
+  ["BORBONESE", 4],
+  ["DONNA", 4],
+  ["LOOL", 4],
+  ["MOREL", 4],
+  ["NOMAD", 3],
+  ["BANISS", 2],
+  ["CARRERA", 2],
+  ["GLORY", 2],
+  ["K-WAY", 2],
+  ["KOALI", 2],
+  ["LANCEL", 2],
+  ["LINA LATINI", 2],
+  ["MEGAPOLIS", 2],
+  ["OPERA Chic", 2],
+  ["REVLON", 2],
+  ["RICO MIRADO", 2],
+  ["SKAGA", 2],
+  ["VALENTIN YUDASHKIN", 2],
+  ["WAGNER+KUHNER", 2],
+  ["DACCHI", 2],
+  ["EMPORIO ARMANI", 2],
+  ["BALLET Extra", 1],
+  ["BLUE CLASSIC", 1],
+  ["BULGET", 1],
+  ["CONVERSE", 1],
+  ["ELFSPIRIT", 1],
+  ["GIGISTUDIOS", 1],
+  ["HUGO BOSS", 1],
+  ["KARL LAGERFELD", 1],
+  ["LOZZA", 1],
+  ["MANILA GRACE", 1],
+  ["MARIUS MOREL", 1],
+  ["MONICA", 1],
+  ["PEPE JEANS", 1],
+  ["POLICE", 1],
+  ["RAY-BAN", 1],
+  ["ROBERTO CAVALLI", 1],
+  ["SAFILO", 1],
+  ["TED BAKER", 1],
+  ["LION`S HEART ДЕТСКИЕ", 1],
+];
 
-// Бренды по убыванию наличия; LION`S HEART закреплён среди первых
-const brands = Object.entries(brandCounts)
-  .sort(([a, ca], [b, cb]) => {
-    const aLH = a === "LION`S HEART" ? 1 : 0;
-    const bLH = b === "LION`S HEART" ? 1 : 0;
-    if (aLH !== bLH) return bLH - aLH;
-    return cb - ca;
-  })
-  .map(([brand]) => brand);
+const totalModels = brandList.reduce((sum, [, count]) => sum + count, 0);
 
 const categories: [string, string][] = [
 
@@ -194,9 +281,18 @@ function WomenFramesPage() {
     setFilters((prev) => ({ ...prev, [key]: prev[key] === value ? null : value }));
 
   const selectBrand = (brand: string) => {
-    setFilters((prev) => ({ ...prev, brand: prev.brand === brand ? null : brand }));
+    // Название бренда в каталоге может отличаться регистром от списка салона
+    const catalogBrand =
+      frames.find((f) => f.brand.toUpperCase() === brand.toUpperCase())?.brand ?? brand;
+    setFilters((prev) => ({
+      ...prev,
+      brand: prev.brand === catalogBrand ? null : catalogBrand,
+    }));
     document.getElementById("katalog")?.scrollIntoView({ behavior: "smooth" });
   };
+
+  const isBrandActive = (brand: string) =>
+    filters.brand !== null && filters.brand.toUpperCase() === brand.toUpperCase();
 
   const selectCategory = (title: string) => {
     const shapeMatch = frames.some((f) => f.shape === title);
@@ -240,7 +336,7 @@ function WomenFramesPage() {
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-14 md:py-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
           <div>
             <div className="flex flex-wrap gap-2">
-              {["Более 300 моделей", "Примерка бесплатно", "От 1 500 ₽"].map((chip) => (
+              {[`Более ${totalModels} моделей`, `${brandList.length} брендов`, "Примерка бесплатно", "От 1 500 ₽"].map((chip) => (
                 <span
                   key={chip}
                   className="rounded-full border border-primary/30 bg-background px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary"
@@ -267,44 +363,49 @@ function WomenFramesPage() {
                 </Link>
               </Button>
             </div>
-            <nav aria-label="Бренды женских оправ" className="mt-10 border-t border-border pt-6">
-              <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                Бренды в наличии — нажмите, чтобы показать модели
-              </p>
-              <ol className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-base font-extrabold uppercase tracking-tight text-foreground">
-                {brands.map((brand, i) => (
-                  <li key={brand} className="flex items-center gap-3">
-                    {i > 0 && <span className="text-primary/50">›</span>}
-                    <button
-                      type="button"
-                      onClick={() => selectBrand(brand)}
-                      className={`cursor-pointer transition-colors hover:text-primary ${
-                        filters.brand === brand ? "text-primary underline underline-offset-4" : ""
-                      }`}
-                    >
-                      {brand}
-                      <span className="ml-1 align-super text-[11px] font-bold normal-case text-primary/70">
-                        {brandCounts[brand]}
-                      </span>
-                    </button>
-                  </li>
-                ))}
-              </ol>
-            </nav>
-
           </div>
 
-          <div className="relative">
+          <div className="relative self-start">
             <div className="absolute -right-10 -top-10 hidden h-48 w-48 rounded-full bg-primary/10 blur-3xl lg:block" />
             <img
               src={heroFrames}
               alt="Женские оправы для очков: cat-eye, прозрачный ацетат и тонкий золотистый металл"
               width={1280}
               height={960}
-              className="relative w-full rounded-2xl object-cover shadow-xl"
+              className="relative mx-auto max-h-64 w-auto max-w-full rounded-2xl object-cover shadow-xl md:max-h-72"
             />
           </div>
         </div>
+
+        {/* Бренды — хлебные крошки, все видны сразу */}
+        <nav
+          aria-label="Бренды женских оправ"
+          className="mx-auto max-w-6xl border-t border-border px-5 pb-10 pt-6"
+        >
+          <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            Бренды в наличии — {brandList.length} брендов, более {totalModels} моделей. Нажмите
+            на бренд, чтобы показать модели
+          </p>
+          <ol className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1.5 text-sm font-bold uppercase tracking-tight text-foreground">
+            {brandList.map(([brand, count], i) => (
+              <li key={brand} className="flex items-center gap-2">
+                {i > 0 && <span className="text-primary/50">›</span>}
+                <button
+                  type="button"
+                  onClick={() => selectBrand(brand)}
+                  className={`cursor-pointer transition-colors hover:text-primary ${
+                    isBrandActive(brand) ? "text-primary underline underline-offset-4" : ""
+                  }`}
+                >
+                  {brand}
+                  <span className="ml-1 align-super text-[10px] font-bold normal-case text-primary/70">
+                    {count}
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ol>
+        </nav>
       </section>
 
       {/* Текст */}
@@ -322,13 +423,12 @@ function WomenFramesPage() {
                 примерить и сразу заказать в неё линзы.
               </p>
               <p>
-                <strong className="text-foreground">Бренды.</strong> LION`S HEART — самая большая
-                женская коллекция в салоне: более 50 моделей, преимущественно тонкий металл, а
-                также пластик и титан, классические, круглые, многоугольные, овальные формы и
-                кошачий глаз, цены 3 900–5 000 ₽. DACCHI и Nikitana — доступный сегмент с
-                большим выбором форм. Mario Rossi — аккуратные металлические и ацетатные
-                модели. Tropical и Ana Hickmann — дизайнерские коллекции с яркими цветами и
-                декором на заушниках.
+                <strong className="text-foreground">Бренды.</strong> В наличии более 70 брендов.
+                Самые большие коллекции — GUESS, LION`S HEART (23 женские модели: тонкий металл,
+                пластик и титан, цены 3 900–5 000 ₽), FURLA, ST.LOUISE, YALEA, POLAROID, MAX&CO
+                и OKULA. Представлены и дизайнерские марки: CAROLINA HERRERA, ESCADA, MARC
+                JACOBS, MAX MARA, SILHOUETTE, WOOW, BLUMARINE, ETNIA BARCELONA. Полный список
+                брендов с количеством моделей — на первом экране страницы.
               </p>
               <p>
                 <strong className="text-foreground">Формы.</strong> Круглые, овальные,
