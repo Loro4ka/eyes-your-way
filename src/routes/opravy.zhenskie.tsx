@@ -281,9 +281,18 @@ function WomenFramesPage() {
     setFilters((prev) => ({ ...prev, [key]: prev[key] === value ? null : value }));
 
   const selectBrand = (brand: string) => {
-    setFilters((prev) => ({ ...prev, brand: prev.brand === brand ? null : brand }));
+    // Название бренда в каталоге может отличаться регистром от списка салона
+    const catalogBrand =
+      frames.find((f) => f.brand.toUpperCase() === brand.toUpperCase())?.brand ?? brand;
+    setFilters((prev) => ({
+      ...prev,
+      brand: prev.brand === catalogBrand ? null : catalogBrand,
+    }));
     document.getElementById("katalog")?.scrollIntoView({ behavior: "smooth" });
   };
+
+  const isBrandActive = (brand: string) =>
+    filters.brand !== null && filters.brand.toUpperCase() === brand.toUpperCase();
 
   const selectCategory = (title: string) => {
     const shapeMatch = frames.some((f) => f.shape === title);
