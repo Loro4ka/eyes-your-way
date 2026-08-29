@@ -198,6 +198,25 @@ function WomenFramesPage() {
     document.getElementById("katalog")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const selectCategory = (title: string) => {
+    const shapeMatch = frames.some((f) => f.shape === title);
+    setFilters((prev) => ({
+      ...prev,
+      shape: shapeMatch ? (prev.shape === title ? null : title) : null,
+      material:
+        title === "Пластиковые"
+          ? prev.material === "Пластик" ? null : "Пластик"
+          : title === "Тонкие металлические"
+            ? prev.material === "Металл" ? null : "Металл"
+            : prev.material,
+      brand:
+        title === "Дизайнерские"
+          ? prev.brand === "Ana Hickmann" ? null : "Ana Hickmann"
+          : prev.brand,
+    }));
+    document.getElementById("katalog")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   const hasFilters = price !== null || Object.values(filters).some(Boolean);
 
   return (
