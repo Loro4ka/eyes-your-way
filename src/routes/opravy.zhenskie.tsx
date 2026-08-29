@@ -250,15 +250,24 @@ function WomenFramesPage() {
             </div>
             <nav aria-label="Бренды женских оправ" className="mt-10 border-t border-border pt-6">
               <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                Бренды в наличии
+                Бренды в наличии — нажмите, чтобы показать модели
               </p>
               <ol className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-base font-extrabold uppercase tracking-tight text-foreground">
                 {brands.map((brand, i) => (
                   <li key={brand} className="flex items-center gap-3">
                     {i > 0 && <span className="text-primary/50">›</span>}
-                    <a href="#katalog" className="transition-colors hover:text-primary">
+                    <button
+                      type="button"
+                      onClick={() => selectBrand(brand)}
+                      className={`cursor-pointer transition-colors hover:text-primary ${
+                        filters.brand === brand ? "text-primary underline underline-offset-4" : ""
+                      }`}
+                    >
                       {brand}
-                    </a>
+                      <span className="ml-1 align-super text-[11px] font-bold normal-case text-primary/70">
+                        {brandCounts[brand]}
+                      </span>
+                    </button>
                   </li>
                 ))}
               </ol>
