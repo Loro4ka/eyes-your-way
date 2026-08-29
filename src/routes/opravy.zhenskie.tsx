@@ -90,7 +90,20 @@ const frames: Frame[] = [
   { model: "MARIO ROSSI MR44", brand: "Mario Rossi", shape: "Круглые", material: "Титан", color: "Серебристый", size: "S", price: 5600 },
 ];
 
-const brands = Array.from(new Set(frames.map((f) => f.brand)));
+const brandCounts = frames.reduce<Record<string, number>>((acc, f) => {
+  acc[f.brand] = (acc[f.brand] ?? 0) + 1;
+  return acc;
+}, {});
+
+// Бренды по убыванию наличия; LION`S HEART закреплён среди первых
+const brands = Object.entries(brandCounts)
+  .sort(([a, ca], [b, cb]) => {
+    const aLH = a === "LION`S HEART" ? 1 : 0;
+    const bLH = b === "LION`S HEART" ? 1 : 0;
+    if (aLH !== bLH) return bLH - aLH;
+    return cb - ca;
+  })
+  .map(([brand]) => brand);
 
 const categories: [string, string][] = [
 
@@ -180,6 +193,30 @@ function WomenFramesPage() {
   const toggle = (key: FilterKey, value: string) =>
     setFilters((prev) => ({ ...prev, [key]: prev[key] === value ? null : value }));
 
+  const selectBrand = (brand: string) => {
+    setFilters((prev) => ({ ...prev, brand: prev.brand === brand ? null : brand }));
+    document.getElementById("katalog")?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const selectCategory = (title: string) => {
+    const shapeMatch = frames.some((f) => f.shape === title);
+    setFilters((prev) => ({
+      ...prev,
+      shape: shapeMatch ? (prev.shape === title ? null : title) : null,
+      material:
+        title === "Пластиковые"
+          ? prev.material === "Пластик" ? null : "Пластик"
+          : title === "Тонкие металлические"
+            ? prev.material === "Металл" ? null : "Металл"
+            : prev.material,
+      brand:
+        title === "Дизайнерские"
+          ? prev.brand === "Ana Hickmann" ? null : "Ana Hickmann"
+          : prev.brand,
+    }));
+    document.getElementById("katalog")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   const hasFilters = price !== null || Object.values(filters).some(Boolean);
 
   return (
@@ -232,15 +269,24 @@ function WomenFramesPage() {
             </div>
             <nav aria-label="Бренды женских оправ" className="mt-10 border-t border-border pt-6">
               <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                Бренды в наличии
+                Бренды в наличии — нажмите, чтобы показать модели
               </p>
               <ol className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-base font-extrabold uppercase tracking-tight text-foreground">
                 {brands.map((brand, i) => (
                   <li key={brand} className="flex items-center gap-3">
                     {i > 0 && <span className="text-primary/50">›</span>}
-                    <a href="#katalog" className="transition-colors hover:text-primary">
+                    <button
+                      type="button"
+                      onClick={() => selectBrand(brand)}
+                      className={`cursor-pointer transition-colors hover:text-primary ${
+                        filters.brand === brand ? "text-primary underline underline-offset-4" : ""
+                      }`}
+                    >
                       {brand}
-                    </a>
+                      <span className="ml-1 align-super text-[11px] font-bold normal-case text-primary/70">
+                        {brandCounts[brand]}
+                      </span>
+                    </button>
                   </li>
                 ))}
               </ol>
@@ -355,14 +401,35 @@ function WomenFramesPage() {
             Какие женские оправы представлены в Оптике 100%
           </h2>
           <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {categories.map(([title, text]) => (
-              <Card key={title}>
-                <CardContent className="p-5">
-                  <h3 className="text-lg font-semibold">{title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{text}</p>
-                </CardContent>
-              </Card>
-            ))}
+            {categories.map(([title, text]) => {
+              const active =
+                (filters.shape === title ||
+                  (title === "Пластиковые" && filters.material === "Пластик") ||
+                  (title === "Тонкие металлические" && filters.material === "Металл") ||
+                  (title === "Дизайнерские" && filters.brand === "Ana Hickmann"));
+              return (
+                <button
+                  key={title}
+                  type="button"
+                  onClick={() => selectCategory(title)}
+                  className="text-left"
+                >
+                  <Card
+                    className={`h-full transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-md ${
+                      active ? "border-primary shadow-md" : ""
+                    }`}
+                  >
+                    <CardContent className="p-5">
+                      <h3 className="text-lg font-semibold">{title}</h3>
+                      <p className="mt-2 text-sm text-muted-foreground">{text}</p>
+                      <span className="mt-3 inline-block text-sm font-bold text-primary">
+                        Смотреть модели →
+                      </span>
+                    </CardContent>
+                  </Card>
+                </button>
+              );
+            })}
           </div>
         </div>
       </section>
