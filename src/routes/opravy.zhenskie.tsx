@@ -336,7 +336,7 @@ function WomenFramesPage() {
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-14 md:py-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
           <div>
             <div className="flex flex-wrap gap-2">
-              {["Более 300 моделей", "Примерка бесплатно", "От 1 500 ₽"].map((chip) => (
+              {[`Более ${totalModels} моделей`, `${brandList.length} брендов`, "Примерка бесплатно", "От 1 500 ₽"].map((chip) => (
                 <span
                   key={chip}
                   className="rounded-full border border-primary/30 bg-background px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary"
