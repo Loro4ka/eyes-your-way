@@ -90,7 +90,20 @@ const frames: Frame[] = [
   { model: "MARIO ROSSI MR44", brand: "Mario Rossi", shape: "Круглые", material: "Титан", color: "Серебристый", size: "S", price: 5600 },
 ];
 
-const brands = Array.from(new Set(frames.map((f) => f.brand)));
+const brandCounts = frames.reduce<Record<string, number>>((acc, f) => {
+  acc[f.brand] = (acc[f.brand] ?? 0) + 1;
+  return acc;
+}, {});
+
+// Бренды по убыванию наличия; LION`S HEART закреплён среди первых
+const brands = Object.entries(brandCounts)
+  .sort(([a, ca], [b, cb]) => {
+    const aLH = a === "LION`S HEART" ? 1 : 0;
+    const bLH = b === "LION`S HEART" ? 1 : 0;
+    if (aLH !== bLH) return bLH - aLH;
+    return cb - ca;
+  })
+  .map(([brand]) => brand);
 
 const categories: [string, string][] = [
 
