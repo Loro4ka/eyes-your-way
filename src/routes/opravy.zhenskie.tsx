@@ -363,44 +363,49 @@ function WomenFramesPage() {
                 </Link>
               </Button>
             </div>
-            <nav aria-label="Бренды женских оправ" className="mt-10 border-t border-border pt-6">
-              <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                Бренды в наличии — нажмите, чтобы показать модели
-              </p>
-              <ol className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-base font-extrabold uppercase tracking-tight text-foreground">
-                {brands.map((brand, i) => (
-                  <li key={brand} className="flex items-center gap-3">
-                    {i > 0 && <span className="text-primary/50">›</span>}
-                    <button
-                      type="button"
-                      onClick={() => selectBrand(brand)}
-                      className={`cursor-pointer transition-colors hover:text-primary ${
-                        filters.brand === brand ? "text-primary underline underline-offset-4" : ""
-                      }`}
-                    >
-                      {brand}
-                      <span className="ml-1 align-super text-[11px] font-bold normal-case text-primary/70">
-                        {brandCounts[brand]}
-                      </span>
-                    </button>
-                  </li>
-                ))}
-              </ol>
-            </nav>
-
           </div>
 
-          <div className="relative">
+          <div className="relative self-start">
             <div className="absolute -right-10 -top-10 hidden h-48 w-48 rounded-full bg-primary/10 blur-3xl lg:block" />
             <img
               src={heroFrames}
               alt="Женские оправы для очков: cat-eye, прозрачный ацетат и тонкий золотистый металл"
               width={1280}
               height={960}
-              className="relative w-full rounded-2xl object-cover shadow-xl"
+              className="relative mx-auto max-h-64 w-auto max-w-full rounded-2xl object-cover shadow-xl md:max-h-72"
             />
           </div>
         </div>
+
+        {/* Бренды — хлебные крошки, все видны сразу */}
+        <nav
+          aria-label="Бренды женских оправ"
+          className="mx-auto max-w-6xl border-t border-border px-5 pb-10 pt-6"
+        >
+          <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            Бренды в наличии — {brandList.length} брендов, более {totalModels} моделей. Нажмите
+            на бренд, чтобы показать модели
+          </p>
+          <ol className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1.5 text-sm font-bold uppercase tracking-tight text-foreground">
+            {brandList.map(([brand, count], i) => (
+              <li key={brand} className="flex items-center gap-2">
+                {i > 0 && <span className="text-primary/50">›</span>}
+                <button
+                  type="button"
+                  onClick={() => selectBrand(brand)}
+                  className={`cursor-pointer transition-colors hover:text-primary ${
+                    isBrandActive(brand) ? "text-primary underline underline-offset-4" : ""
+                  }`}
+                >
+                  {brand}
+                  <span className="ml-1 align-super text-[10px] font-bold normal-case text-primary/70">
+                    {count}
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ol>
+        </nav>
       </section>
 
       {/* Текст */}
