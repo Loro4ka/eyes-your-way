@@ -382,14 +382,35 @@ function WomenFramesPage() {
             Какие женские оправы представлены в Оптике 100%
           </h2>
           <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {categories.map(([title, text]) => (
-              <Card key={title}>
-                <CardContent className="p-5">
-                  <h3 className="text-lg font-semibold">{title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{text}</p>
-                </CardContent>
-              </Card>
-            ))}
+            {categories.map(([title, text]) => {
+              const active =
+                (filters.shape === title ||
+                  (title === "Пластиковые" && filters.material === "Пластик") ||
+                  (title === "Тонкие металлические" && filters.material === "Металл") ||
+                  (title === "Дизайнерские" && filters.brand === "Ana Hickmann"));
+              return (
+                <button
+                  key={title}
+                  type="button"
+                  onClick={() => selectCategory(title)}
+                  className="text-left"
+                >
+                  <Card
+                    className={`h-full transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-md ${
+                      active ? "border-primary shadow-md" : ""
+                    }`}
+                  >
+                    <CardContent className="p-5">
+                      <h3 className="text-lg font-semibold">{title}</h3>
+                      <p className="mt-2 text-sm text-muted-foreground">{text}</p>
+                      <span className="mt-3 inline-block text-sm font-bold text-primary">
+                        Смотреть модели →
+                      </span>
+                    </CardContent>
+                  </Card>
+                </button>
+              );
+            })}
           </div>
         </div>
       </section>
