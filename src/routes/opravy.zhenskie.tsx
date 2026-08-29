@@ -88,22 +88,109 @@ const frames: Frame[] = [
   { model: "ANA HICKMANN AH6412", brand: "Ana Hickmann", shape: "Cat-eye", material: "Титан", color: "Золотой", size: "M", price: 7900 },
   { model: "ANA HICKMANN AH1398", brand: "Ana Hickmann", shape: "Квадратные", material: "Ацетат", color: "Чёрный", size: "L", price: 8400 },
   { model: "MARIO ROSSI MR44", brand: "Mario Rossi", shape: "Круглые", material: "Титан", color: "Серебристый", size: "S", price: 5600 },
+  { model: "GUESS GU2857", brand: "GUESS", shape: "Cat-eye", material: "Ацетат", color: "Чёрный", size: "M", price: 6900 },
+  { model: "GUESS GU50110", brand: "GUESS", shape: "Квадратные", material: "Пластик", color: "Коричневый", size: "L", price: 6400 },
+  { model: "FURLA VFU499", brand: "FURLA", shape: "Овальные", material: "Ацетат", color: "Розовый", size: "M", price: 8900 },
+  { model: "FURLA VFU352", brand: "FURLA", shape: "Прямоугольные", material: "Металл", color: "Золотой", size: "M", price: 8400 },
+  { model: "ST.LOUISE SL8421", brand: "ST.LOUISE", shape: "Классические", material: "Металл", color: "Серебристый", size: "M", price: 4200 },
+  { model: "YALEA YA047", brand: "YALEA", shape: "Круглые", material: "Ацетат", color: "Прозрачный", size: "S", price: 7200 },
+  { model: "OKULA OK118", brand: "OKULA", shape: "Квадратные", material: "Пластик", color: "Синий", size: "M", price: 3600 },
+  { model: "POLAROID PLD D414", brand: "POLAROID", shape: "Прямоугольные", material: "Пластик", color: "Чёрный", size: "M", price: 4400 },
+  { model: "MAX&CO MO5123", brand: "MAX&CO", shape: "Cat-eye", material: "Ацетат", color: "Коричневый", size: "M", price: 9400 },
+  { model: "ESCADA ES1012", brand: "ESCADA", shape: "Овальные", material: "Металл", color: "Золотой", size: "S", price: 11200 },
+  { model: "CAROLINA HERRERA CH0042", brand: "CAROLINA HERRERA", shape: "Квадратные", material: "Ацетат", color: "Чёрный", size: "M", price: 12800 },
+  { model: "WILLIAM MORRIS WM50134", brand: "WILLIAM MORRIS", shape: "Круглые", material: "Металл", color: "Бронзовый", size: "S", price: 6800 },
+  { model: "O.D.L OD2210", brand: "O.D.L", shape: "Прямоугольные", material: "Металл", color: "Серебристый", size: "M", price: 3900 },
+  { model: "PIERRE CARDIN PC6879", brand: "PIERRE CARDIN", shape: "Классические", material: "Металл", color: "Чёрный", size: "M", price: 5900 },
+  { model: "MARC JACOBS MJ1019", brand: "MARC JACOBS", shape: "Cat-eye", material: "Ацетат", color: "Фиолетовый", size: "M", price: 11900 },
+  { model: "VOGUE VO5286", brand: "VOGUE", shape: "Квадратные", material: "Пластик", color: "Прозрачный", size: "S", price: 5400 },
+  { model: "SILHOUETTE SPX 1608", brand: "SILHOUETTE", shape: "Овальные", material: "Титан", color: "Серебристый", size: "M", price: 18900 },
+  { model: "TOUS VTOA52", brand: "TOUS", shape: "Круглые", material: "Ацетат", color: "Розовый", size: "S", price: 8600 },
+  { model: "WOOW WOOLAA1", brand: "WOOW", shape: "Многоугольные", material: "Ацетат", color: "Зелёный", size: "M", price: 13400 },
+  { model: "BLUMARINE BM5012", brand: "BLUMARINE", shape: "Cat-eye", material: "Металл", color: "Золотой", size: "M", price: 9800 },
+  { model: "LAURA BIAGIOTTI LB505", brand: "LAURA BIAGIOTTI", shape: "Овальные", material: "Металл", color: "Бронзовый", size: "M", price: 6200 },
+  { model: "MAX MARA MM1390", brand: "MAX MARA", shape: "Прямоугольные", material: "Ацетат", color: "Чёрный", size: "M", price: 12400 },
 ];
 
-const brandCounts = frames.reduce<Record<string, number>>((acc, f) => {
-  acc[f.brand] = (acc[f.brand] ?? 0) + 1;
-  return acc;
-}, {});
+// Полный список брендов салона с количеством моделей в наличии.
+// Сортировка: LION`S HEART первым, далее по убыванию количества.
+const brandList: [string, number][] = [
+  ["LION`S HEART", 23],
+  ["GUESS", 36],
+  ["FURLA", 20],
+  ["ST.LOUISE", 19],
+  ["YALEA", 17],
+  ["OKULA", 16],
+  ["POLAROID", 16],
+  ["MAX&CO", 16],
+  ["ESCADA", 15],
+  ["CAROLINA HERRERA", 14],
+  ["WILLIAM MORRIS", 12],
+  ["ANA HICKMANN", 11],
+  ["O.D.L", 11],
+  ["PIERRE CARDIN", 11],
+  ["MARC JACOBS", 10],
+  ["VOGUE", 10],
+  ["SILHOUETTE", 9],
+  ["TOUS", 9],
+  ["WOOW", 9],
+  ["BLUMARINE", 8],
+  ["LAURA BIAGIOTTI", 7],
+  ["MAX MARA", 7],
+  ["BELUTTI", 6],
+  ["ENNI MARCO", 6],
+  ["ETNIA BARCELONA", 6],
+  ["MEREL", 6],
+  ["VON BOGEN", 6],
+  ["HICKMANN", 5],
+  ["FOR ART'S SAKE", 5],
+  ["SAFILO SEVENTH STREET", 5],
+  ["PRODESIGN", 5],
+  ["NINA RICCI", 5],
+  ["STEPPER", 5],
+  ["BORBONESE", 4],
+  ["DONNA", 4],
+  ["LOOL", 4],
+  ["MOREL", 4],
+  ["NOMAD", 3],
+  ["BANISS", 2],
+  ["CARRERA", 2],
+  ["GLORY", 2],
+  ["K-WAY", 2],
+  ["KOALI", 2],
+  ["LANCEL", 2],
+  ["LINA LATINI", 2],
+  ["MEGAPOLIS", 2],
+  ["OPERA Chic", 2],
+  ["REVLON", 2],
+  ["RICO MIRADO", 2],
+  ["SKAGA", 2],
+  ["VALENTIN YUDASHKIN", 2],
+  ["WAGNER+KUHNER", 2],
+  ["DACCHI", 2],
+  ["EMPORIO ARMANI", 2],
+  ["BALLET Extra", 1],
+  ["BLUE CLASSIC", 1],
+  ["BULGET", 1],
+  ["CONVERSE", 1],
+  ["ELFSPIRIT", 1],
+  ["GIGISTUDIOS", 1],
+  ["HUGO BOSS", 1],
+  ["KARL LAGERFELD", 1],
+  ["LOZZA", 1],
+  ["MANILA GRACE", 1],
+  ["MARIUS MOREL", 1],
+  ["MONICA", 1],
+  ["PEPE JEANS", 1],
+  ["POLICE", 1],
+  ["RAY-BAN", 1],
+  ["ROBERTO CAVALLI", 1],
+  ["SAFILO", 1],
+  ["TED BAKER", 1],
+  ["LION`S HEART ДЕТСКИЕ", 1],
+];
 
-// Бренды по убыванию наличия; LION`S HEART закреплён среди первых
-const brands = Object.entries(brandCounts)
-  .sort(([a, ca], [b, cb]) => {
-    const aLH = a === "LION`S HEART" ? 1 : 0;
-    const bLH = b === "LION`S HEART" ? 1 : 0;
-    if (aLH !== bLH) return bLH - aLH;
-    return cb - ca;
-  })
-  .map(([brand]) => brand);
+const totalModels = brandList.reduce((sum, [, count]) => sum + count, 0);
 
 const categories: [string, string][] = [
 
