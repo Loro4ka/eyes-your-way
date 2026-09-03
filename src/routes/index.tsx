@@ -32,8 +32,8 @@ export const Route = createFileRoute("/")({
 });
 
 const priceRows = [
-  { label: "Диагностика зрения", value: "уточняется на записи" },
-  { label: "Подбор очков", value: "уточняется на записи" },
+  { label: "Диагностика зрения", value: "уточняется на записи", priceLink: true },
+  { label: "Подбор очков", value: "уточняется на записи", priceLink: true },
   { label: "Продолжительность приёма", value: "40–60 минут" },
   { label: "Запись", value: "по телефону или онлайн" },
 ];
@@ -48,9 +48,11 @@ const included = [
 ];
 
 const salons = [
-  { title: "Салон в центре", address: "Санкт-Петербург, Центральный район" },
-  { title: "Салон на севере города", address: "Санкт-Петербург, Выборгский район" },
-  { title: "Салон на юге города", address: "Санкт-Петербург, Московский район" },
+  {
+    title: "Салон оптики в Санкт-Петербурге",
+    address: "ул. Кирочная, 17",
+    details: "м. Чернышевская · Ежедневно с 10:00 до 20:00",
+  },
 ];
 
 const steps: [string, string][] = [
@@ -64,14 +66,26 @@ const steps: [string, string][] = [
   ["Контроль качества", "Проверяем готовые очки и комфорт при ношении."],
 ];
 
-const glassesTypes: [string, string][] = [
-  ["Для постоянного ношения", "Универсальные очки на каждый день с комфортной коррекцией."],
-  ["Для компьютера", "Снижают нагрузку при работе на средней дистанции."],
-  ["Для офиса", "Офисные линзы для работы с документами и монитором."],
-  ["Для вождения", "Контрастность и защита от блики фар и мокрого асфальта."],
-  ["Прогрессивные", "Одни очки для дали, средней дистанции и чтения."],
-  ["Солнцезащитные с диоптриями", "Затемнённые линзы с вашей коррекцией и UV-защитой."],
-  ["Детские", "Лёгкие оправы и линзы с учётом роста и активности ребёнка."],
+type GlassType = { title: string; text: string; to?: "/opravy/zhenskie" | "/stellest-katalog-s-linzami" };
+
+const glassesTypes: GlassType[] = [
+  { title: "Для постоянного ношения", text: "Универсальные очки на каждый день с комфортной коррекцией.", to: "/opravy/zhenskie" },
+  {
+    title: "Для компьютера",
+    text: "Снижают зрительную нагрузку при работе с монитором, планшетом и телефоном.",
+  },
+  {
+    title: "Для офиса",
+    text: "Офисные линзы для работы на близком расстоянии и за монитором (возраст 40+).",
+  },
+  { title: "Для вождения", text: "Контрастность и защита от бликов фар и мокрого асфальта." },
+  { title: "Прогрессивные", text: "Одни очки для дали, средней дистанции и чтения (возраст 40+).", to: "/opravy/zhenskie" },
+  { title: "Солнцезащитные с диоптриями", text: "Затемнённые линзы с вашей коррекцией и UV-защитой.", to: "/opravy/zhenskie" },
+  {
+    title: "Детские",
+    text: "Лёгкие оправы и линзы с учётом роста и активности ребёнка, линзы, замедляющие рост миопии.",
+    to: "/stellest-katalog-s-linzami",
+  },
 ];
 
 const faq: [string, string][] = [
@@ -177,7 +191,20 @@ function Index() {
                     className="flex flex-wrap items-baseline justify-between gap-2 py-3"
                   >
                     <dt className="font-medium">{row.label}</dt>
-                    <dd className="text-muted-foreground">{row.value}</dd>
+                    <dd className="text-muted-foreground">
+                      {row.priceLink ? (
+                        <a
+                          href="https://optika100.com/uslugi/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary"
+                        >
+                          {row.value}
+                        </a>
+                      ) : (
+                        row.value
+                      )}
+                    </dd>
                   </div>
                 ))}
               </dl>
@@ -211,13 +238,14 @@ function Index() {
           </Card>
         </div>
 
-        <h3 className="mt-12 text-xl font-semibold">Адреса салонов в Санкт-Петербурге</h3>
-        <div className="mt-4 grid gap-4 md:grid-cols-3">
+        <h3 className="mt-12 text-xl font-semibold">Адрес салона в Санкт-Петербурге</h3>
+        <div className="mt-4">
           {salons.map((salon) => (
-            <Card key={salon.title}>
+            <Card key={salon.title} className="max-w-md">
               <CardContent className="p-5">
                 <p className="font-medium">{salon.title}</p>
                 <p className="mt-1 text-sm text-muted-foreground">{salon.address}</p>
+                <p className="mt-1 text-sm text-muted-foreground">{salon.details}</p>
               </CardContent>
             </Card>
           ))}
@@ -246,11 +274,27 @@ function Index() {
       <section id="vidy" className="mx-auto max-w-6xl px-5 py-16">
         <h2 className="heading-bar text-3xl md:text-4xl">Какие очки можно подобрать</h2>
         <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {glassesTypes.map(([title, text]) => (
-            <Card key={title}>
-              <CardContent className="p-5">
-                <h3 className="text-lg font-semibold">{title}</h3>
+          {glassesTypes.map(({ title, text, to }) => (
+            <Card key={title} className="transition-shadow hover:shadow-md">
+              <CardContent className="flex h-full flex-col p-5">
+                <h3 className="text-lg font-semibold">
+                  {to ? (
+                    <Link to={to} className="hover:text-primary">
+                      {title}
+                    </Link>
+                  ) : (
+                    title
+                  )}
+                </h3>
                 <p className="mt-2 text-sm text-muted-foreground">{text}</p>
+                {to && (
+                  <Link
+                    to={to}
+                    className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
+                  >
+                    Смотреть подробнее →
+                  </Link>
+                )}
               </CardContent>
             </Card>
           ))}
