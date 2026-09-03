@@ -274,11 +274,27 @@ function Index() {
       <section id="vidy" className="mx-auto max-w-6xl px-5 py-16">
         <h2 className="heading-bar text-3xl md:text-4xl">Какие очки можно подобрать</h2>
         <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {glassesTypes.map(([title, text]) => (
-            <Card key={title}>
-              <CardContent className="p-5">
-                <h3 className="text-lg font-semibold">{title}</h3>
+          {glassesTypes.map(({ title, text, to }) => (
+            <Card key={title} className="transition-shadow hover:shadow-md">
+              <CardContent className="flex h-full flex-col p-5">
+                <h3 className="text-lg font-semibold">
+                  {to ? (
+                    <Link to={to} className="hover:text-primary">
+                      {title}
+                    </Link>
+                  ) : (
+                    title
+                  )}
+                </h3>
                 <p className="mt-2 text-sm text-muted-foreground">{text}</p>
+                {to && (
+                  <Link
+                    to={to}
+                    className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
+                  >
+                    Смотреть подробнее →
+                  </Link>
+                )}
               </CardContent>
             </Card>
           ))}
