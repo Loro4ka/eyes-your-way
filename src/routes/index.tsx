@@ -32,8 +32,8 @@ export const Route = createFileRoute("/")({
 });
 
 const priceRows = [
-  { label: "Диагностика зрения", value: "уточняется на записи" },
-  { label: "Подбор очков", value: "уточняется на записи" },
+  { label: "Диагностика зрения", value: "уточняется на записи", priceLink: true },
+  { label: "Подбор очков", value: "уточняется на записи", priceLink: true },
   { label: "Продолжительность приёма", value: "40–60 минут" },
   { label: "Запись", value: "по телефону или онлайн" },
 ];
