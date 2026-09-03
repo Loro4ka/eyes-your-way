@@ -235,13 +235,14 @@ function Index() {
           </Card>
         </div>
 
-        <h3 className="mt-12 text-xl font-semibold">Адреса салонов в Санкт-Петербурге</h3>
-        <div className="mt-4 grid gap-4 md:grid-cols-3">
+        <h3 className="mt-12 text-xl font-semibold">Адрес салона в Санкт-Петербурге</h3>
+        <div className="mt-4">
           {salons.map((salon) => (
-            <Card key={salon.title}>
+            <Card key={salon.title} className="max-w-md">
               <CardContent className="p-5">
                 <p className="font-medium">{salon.title}</p>
                 <p className="mt-1 text-sm text-muted-foreground">{salon.address}</p>
+                <p className="mt-1 text-sm text-muted-foreground">{salon.details}</p>
               </CardContent>
             </Card>
           ))}
