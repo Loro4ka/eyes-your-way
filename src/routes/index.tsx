@@ -188,7 +188,20 @@ function Index() {
                     className="flex flex-wrap items-baseline justify-between gap-2 py-3"
                   >
                     <dt className="font-medium">{row.label}</dt>
-                    <dd className="text-muted-foreground">{row.value}</dd>
+                    <dd className="text-muted-foreground">
+                      {row.priceLink ? (
+                        <a
+                          href="https://optika100.com/uslugi/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary"
+                        >
+                          {row.value}
+                        </a>
+                      ) : (
+                        row.value
+                      )}
+                    </dd>
                   </div>
                 ))}
               </dl>
