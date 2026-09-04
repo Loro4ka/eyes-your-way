@@ -379,11 +379,15 @@ function ProgressiveLensesPage() {
           от серии линзы, сложности рецепта и выбранных покрытий.
         </p>
         <ul className="mt-6 grid gap-4 md:grid-cols-3">
-          {priceRanges.map((p) => (
-            <li key={p.name} className="rounded-lg border border-border bg-card p-5">
-              <p className="text-lg font-extrabold text-primary">{p.price}</p>
-              <h3 className="mt-1 font-bold text-foreground">{p.name}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{p.text}</p>
+          {priceRanges.map((p, i) => (
+            <li key={p.name}>
+              <Reveal delay={i * 90}>
+                <div className="h-full rounded-lg border border-border bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-md">
+                  <p className="text-lg font-extrabold text-primary">{p.price}</p>
+                  <h3 className="mt-1 font-bold text-foreground">{p.name}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{p.text}</p>
+                </div>
+              </Reveal>
             </li>
           ))}
         </ul>
@@ -436,9 +440,7 @@ function ProgressiveLensesPage() {
               <details className="group rounded-lg border border-border bg-card">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-semibold text-foreground transition-colors hover:text-primary">
                   {f.q}
-                  <span className="text-primary transition-transform group-open:rotate-45" aria-hidden="true">
-                    +
-                  </span>
+                  <ChevronDown className="h-5 w-5 shrink-0 text-primary transition-transform duration-300 group-open:rotate-180" aria-hidden="true" />
                 </summary>
                 <p className="px-5 pb-4 text-sm text-muted-foreground">{f.a}</p>
               </details>
