@@ -25,7 +25,7 @@ function Reveal({ children, delay = 0, className = "" }: { children: ReactNode; 
     if (!el) return;
     const obs = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry?.isIntersecting) {
           setVisible(true);
           obs.disconnect();
         }
