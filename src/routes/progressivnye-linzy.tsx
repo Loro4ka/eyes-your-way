@@ -323,10 +323,17 @@ function ProgressiveLensesPage() {
           При подборе мы учитываем восемь ключевых факторов — они определяют, какая серия линз подойдёт именно вам.
         </p>
         <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {howToChoose.map((f) => (
-            <li key={f.title} className="rounded-lg border border-border bg-card p-4">
-              <h3 className="font-bold text-foreground">{f.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{f.text}</p>
+          {howToChoose.map((f, i) => (
+            <li key={f.title}>
+              <Reveal delay={i * 60}>
+                <div className="group h-full rounded-lg border border-border bg-card p-4 transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-md">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                    <f.icon className="h-4.5 w-4.5" aria-hidden="true" />
+                  </span>
+                  <h3 className="mt-3 font-bold text-foreground">{f.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{f.text}</p>
+                </div>
+              </Reveal>
             </li>
           ))}
         </ul>
@@ -348,7 +355,7 @@ function ProgressiveLensesPage() {
             </thead>
             <tbody>
               {brands.map((b) => (
-                <tr key={b.brand} className="border-t border-border bg-card">
+                <tr key={b.brand} className="border-t border-border bg-card transition-colors hover:bg-accent/50">
                   <td className="px-4 py-3 font-bold text-primary">{b.brand}</td>
                   <td className="px-4 py-3 text-foreground">{b.series}</td>
                   <td className="px-4 py-3 text-muted-foreground">{b.whom}</td>
