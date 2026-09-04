@@ -66,7 +66,11 @@ const steps: [string, string][] = [
   ["Контроль качества", "Проверяем готовые очки и комфорт при ношении."],
 ];
 
-type GlassType = { title: string; text: string; to?: "/opravy/zhenskie" | "/stellest-katalog-s-linzami" };
+type GlassType = {
+  title: string;
+  text: string;
+  to?: "/opravy/zhenskie" | "/stellest-katalog-s-linzami" | "/progressivnye-linzy";
+};
 
 const glassesTypes: GlassType[] = [
   { title: "Для постоянного ношения", text: "Универсальные очки на каждый день с комфортной коррекцией.", to: "/opravy/zhenskie" },
@@ -79,7 +83,7 @@ const glassesTypes: GlassType[] = [
     text: "Офисные линзы для работы на близком расстоянии и за монитором (возраст 40+).",
   },
   { title: "Для вождения", text: "Контрастность и защита от бликов фар и мокрого асфальта." },
-  { title: "Прогрессивные", text: "Одни очки для дали, средней дистанции и чтения (возраст 40+).", to: "/opravy/zhenskie" },
+  { title: "Прогрессивные", text: "Одни очки для дали, средней дистанции и чтения (возраст 40+).", to: "/progressivnye-linzy" },
   { title: "Солнцезащитные с диоптриями", text: "Затемнённые линзы с вашей коррекцией и UV-защитой.", to: "/opravy/zhenskie" },
   {
     title: "Детские",

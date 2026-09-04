@@ -124,6 +124,7 @@ const navItems = [
   { label: "Подбор очков", href: "/" },
   { label: "Женские оправы", href: "/opravy/zhenskie" },
   { label: "Линзы Stellest", href: "/stellest-katalog-s-linzami" },
+  { label: "Прогрессивные линзы", href: "/progressivnye-linzy" },
   { label: "Стоимость", href: "/#stoimost" },
   { label: "Пошагово", href: "/#kak" },
   { label: "Виды очков", href: "/#vidy" },
@@ -188,6 +189,11 @@ function SiteFooter() {
             <li>
               <Link to="/opravy/zhenskie" hash="katalog" className="hover:text-primary">
                 Каталог оправ
+              </Link>
+            </li>
+            <li>
+              <Link to="/progressivnye-linzy" className="hover:text-primary">
+                Прогрессивные линзы
               </Link>
             </li>
           </ul>
