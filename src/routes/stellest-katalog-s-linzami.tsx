@@ -443,6 +443,9 @@ function StellestPage() {
             Специалист оценит динамику зрения ребёнка, объяснит, показаны ли линзы Stellest, и
             рассчитает стоимость очков.
           </p>
+          <p className="mx-auto mt-3 max-w-2xl text-sm text-primary-foreground/80">
+            Салон в Санкт-Петербурге: ул. Кирочная, 17, м. Чернышевская, ежедневно 10:00–20:00.
+          </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Button size="lg" variant="secondary" className="rounded-lg px-7 text-base font-bold" asChild>
               <Link to="/" hash="zapis">

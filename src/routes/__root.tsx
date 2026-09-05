@@ -219,11 +219,12 @@ function SiteFooter() {
           </ul>
         </div>
         <div>
-          <p className="font-semibold text-foreground">Запись</p>
+          <p className="font-semibold text-foreground">Адрес и запись</p>
+          <p className="mt-2">Санкт-Петербург, ул. Кирочная, 17</p>
+          <p className="mt-1">м. Чернышевская, ежедневно 10:00–20:00</p>
           <a href="tel:+78120000000" className="mt-2 inline-block hover:text-primary">
             8 (812) 000-00-00
           </a>
-          <p className="mt-2">Центральный, Выборгский и Московский районы</p>
         </div>
       </div>
     </footer>
