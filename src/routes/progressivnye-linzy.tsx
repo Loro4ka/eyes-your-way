@@ -76,26 +76,43 @@ export const Route = createFileRoute("/progressivnye-linzy")({
 const brands = [
   {
     brand: "Essilor",
-    series: "Essilor Progressive",
+    series: "Essentials Everyday 1,5 Trio",
     whom: "Первые прогрессивные линзы, ежедневное ношение",
-    features: "Плавный переход между зонами, широкий выбор дизайнов",
+    features: "Плавный переход между зонами, базовый дизайн FreeForm",
     price: "от 5 700 ₽",
   },
   {
     brand: "Varilux",
-    series: "Comfort / Physio / X-series",
+    series: "Liberty 3.0 / Comfort Max / Physio / X-series",
     whom: "Активный образ жизни, требовательные пользователи",
-    features: "Эталонный комфорт, минимальные искажения по краям",
-    price: "от 12 000 ₽",
+    features: "Эталонный комфорт, минимальные искажения по краям, покрытия Crizal",
+    price: "13 500 – 37 500 ₽",
   },
   {
     brand: "Hoyalux",
-    series: "Hoyalux iD / WorkStyle",
+    series: "Daynamic / iD LifeStyle 4 / iD MySelf / Balansis",
     whom: "Работа за компьютером и вождение",
-    features: "Индивидуальные дизайны, учёт параметров оправы",
-    price: "от 9 000 ₽",
+    features: "Индивидуальные дизайны, покрытия Hi-Vision, фотохром Sensity",
+    price: "16 000 – 47 000 ₽",
   },
 ];
+
+const catalogModels = [
+  { name: "Essilor Essentials Everyday 1,5 Trio", price: "5 700 ₽" },
+  { name: "Varilux Liberty 3.0 Orma Crizal Easy Pro UV", price: "13 500 ₽" },
+  { name: "Hoyalux Daynamic 1.5 Hi-Vision Aqua", price: "16 000 ₽" },
+  { name: "Varilux Comfort Max Orma Crizal Easy Pro UV", price: "19 900 ₽" },
+  { name: "Hoyalux iD LifeStyle 4 1.50 Hi-Vision LongLife", price: "25 200 ₽" },
+  { name: "Varilux Liberty 3.0 Orma XPERIO Crizal SUN UV", price: "25 900 ₽" },
+  { name: "Varilux Physio Extensee Orma Crizal Easy Pro", price: "30 700 ₽" },
+  { name: "Varilux Comfort Max Orma Transitions Crizal Easy Pro UV", price: "31 900 ₽" },
+  { name: "Hoyalux 1.5 Balansis HVLL BlueControl Sensity", price: "36 100 ₽" },
+  { name: "Varilux X Orma Crizal Prevencia UV", price: "37 500 ₽" },
+  { name: "Varilux X Orma Crizal Drive UV", price: "37 500 ₽" },
+  { name: "Hoyalux iD MySelf 1.5 Hi-Vision LongLife", price: "42 800 ₽" },
+  { name: "Hoyalux iD LifeStyle 4 1.5 HVLL BlueControl Sensity", price: "47 000 ₽" },
+];
+
 
 const howToChoose = [
   { icon: CalendarClock, title: "Возраст", text: "Прогрессивные линзы обычно назначаются после 40 лет, когда развивается возрастная дальнозоркость (пресбиопия)." },
