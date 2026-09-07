@@ -120,6 +120,70 @@ const priceRanges = [
   { name: "Индивидуальные дизайны", price: "25 000 – 40 000+ ₽", text: "Линзы, рассчитанные под ваш рецепт, оправу и параметры посадки." },
 ];
 
+const distances = [
+  { zone: "Вдаль", dist: "более 120 см", part: "верхняя часть линзы", icon: Car },
+  { zone: "Среднее расстояние", dist: "80–100 см", part: "центральная часть линзы", icon: Monitor },
+  { zone: "Вблизи", dist: "30–60 см", part: "нижняя часть линзы", icon: BookOpen },
+];
+
+const tiers = [
+  {
+    name: "Стандартные",
+    price: "от 5 700 ₽",
+    note: "за пару",
+    features: ["Все преимущества прогрессивных линз", "Чёткое зрение на трёх дистанциях", "Доступная цена"],
+    featured: false,
+  },
+  {
+    name: "Улучшенные",
+    price: "от 12 000 ₽",
+    note: "за пару",
+    features: [
+      "Расширенные зоны чёткого зрения",
+      "Больше подходящих оправ за счёт оптимизации линзы",
+      "Учёт образа жизни: компьютер, вождение, чтение",
+    ],
+    featured: true,
+  },
+  {
+    name: "Премиум",
+    price: "от 25 000 ₽",
+    note: "за пару",
+    features: [
+      "Максимально широкие зоны обзора",
+      "Индивидуальный расчёт под рецепт и оправу",
+      "Практически без ограничений по оправам",
+      "Самая быстрая адаптация",
+    ],
+    featured: false,
+  },
+];
+
+const lensMakers = [
+  { name: "Essilor", country: "Франция" },
+  { name: "Varilux", country: "Франция" },
+  { name: "Hoya", country: "Япония" },
+  { name: "Nikon", country: "Япония" },
+  { name: "Seiko", country: "Япония" },
+  { name: "Zeiss", country: "Германия" },
+  { name: "Rodenstock", country: "Германия" },
+  { name: "Shamir", country: "Израиль" },
+];
+
+const pros = [
+  "Одни очки вместо двух-трёх пар",
+  "Нет видимых линий, выглядят как обычные очки",
+  "Плавный переход без скачков изображения",
+  "Подходят для чтения, компьютера, ТВ и вождения",
+];
+
+const cons = [
+  "Цена выше, чем у обычных линз — это сложное оптическое изделие",
+  "Нужен период адаптации: от нескольких минут до 1–2 недель",
+  "Требуется точный подбор параметров посадки в салоне",
+];
+
+
 const faqs = [
   {
     q: "Что такое прогрессивные линзы простыми словами?",
@@ -207,39 +271,45 @@ function ProgressiveLensesPage() {
                   Сравнить бренды
                 </a>
               </div>
-              {/* Зоны линзы */}
-              <div className="mt-8 flex flex-wrap gap-2">
-                {[
-                  { label: "Даль", w: "w-full" },
-                  { label: "Компьютер", w: "w-2/3" },
-                  { label: "Чтение", w: "w-1/3" },
-                ].map((z, i) => (
-                  <div key={z.label} className="w-full">
-                    <div className="flex items-center gap-2">
-                      <span
-                        className={`h-2 rounded-full bg-primary ${z.w} animate-pulse`}
-                        style={{ animationDelay: `${i * 400}ms` }}
-                        aria-hidden="true"
-                      />
-                      <span className="text-xs font-semibold text-muted-foreground">{z.label}</span>
-                    </div>
-                  </div>
+              {/* Дистанции */}
+              <ul className="mt-8 space-y-2">
+                {distances.map((d, i) => (
+                  <li
+                    key={d.zone}
+                    className="flex items-center gap-3 rounded-lg border border-border bg-card px-3 py-2.5 transition-colors hover:border-primary"
+                    style={{ animationDelay: `${i * 120}ms` }}
+                  >
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                      <d.icon className="h-4 w-4" aria-hidden="true" />
+                    </span>
+                    <span className="text-sm font-bold text-foreground">{d.zone}</span>
+                    <span className="text-sm text-primary font-semibold">{d.dist}</span>
+                    <span className="ml-auto hidden text-xs text-muted-foreground sm:block">{d.part}</span>
+                  </li>
                 ))}
-                <p className="mt-1 text-xs text-muted-foreground">
-                  Три зоны чёткого зрения — в одной линзе без видимых границ
+              </ul>
+              <p className="mt-2 text-xs text-muted-foreground">
+                Три зоны чёткого зрения — в одной линзе без видимых границ
+              </p>
+            </div>
+          </div>
+          <div className="animate-scale-in">
+            <div className="relative overflow-hidden rounded-xl border border-border shadow-lg">
+              <img
+                src={heroProgressive}
+                alt="Очки с прогрессивными линзами в салоне оптики"
+                width={1024}
+                height={768}
+                className="w-full object-cover"
+              />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-foreground/80 to-transparent p-4">
+                <p className="text-sm font-semibold text-background">
+                  Бесплатный подбор прогрессивных линз при заказе оправы с линзами
                 </p>
               </div>
             </div>
           </div>
-          <div className="animate-scale-in">
-            <img
-              src={heroProgressive}
-              alt="Очки с прогрессивными линзами в салоне оптики"
-              width={1024}
-              height={768}
-              className="w-full rounded-xl border border-border object-cover shadow-lg"
-            />
-          </div>
+
         </div>
       </section>
 
