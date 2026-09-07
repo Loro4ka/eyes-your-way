@@ -14,6 +14,9 @@ import {
   Plus,
   ChevronDown,
   ArrowRight,
+  Check,
+  Minus,
+
 } from "lucide-react";
 import heroProgressive from "@/assets/hero-progressive.jpg";
 
@@ -348,13 +351,14 @@ function ProgressiveLensesPage() {
               <svg viewBox="0 0 200 240" className="mx-auto h-auto w-full max-w-[220px]" role="img" aria-label="Схема зон прогрессивной линзы">
                 <defs>
                   <linearGradient id="lensZones" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.08" />
-                    <stop offset="50%" stopColor="hsl(var(--primary))" stopOpacity="0.22" />
-                    <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.45" />
+                    <stop offset="0%" stopColor="var(--primary)" stopOpacity="0.08" />
+                    <stop offset="50%" stopColor="var(--primary)" stopOpacity="0.22" />
+                    <stop offset="100%" stopColor="var(--primary)" stopOpacity="0.45" />
                   </linearGradient>
                 </defs>
-                <ellipse cx="100" cy="120" rx="88" ry="112" fill="url(#lensZones)" stroke="hsl(var(--primary))" strokeWidth="2" />
-                <rect x="88" y="60" width="24" height="130" rx="12" fill="hsl(var(--primary))" opacity="0.25" />
+                <ellipse cx="100" cy="120" rx="88" ry="112" fill="url(#lensZones)" stroke="var(--primary)" strokeWidth="2" />
+                <rect x="88" y="60" width="24" height="130" rx="12" fill="var(--primary)" opacity="0.25" />
+
                 <text x="100" y="55" textAnchor="middle" className="fill-foreground" fontSize="13" fontWeight="700">Даль</text>
                 <text x="100" y="128" textAnchor="middle" className="fill-foreground" fontSize="13" fontWeight="700">Средняя</text>
                 <text x="100" y="200" textAnchor="middle" className="fill-foreground" fontSize="13" fontWeight="700">Близь</text>
@@ -366,6 +370,113 @@ function ProgressiveLensesPage() {
           </Reveal>
         </div>
       </section>
+
+      {/* Производители линз */}
+      <section className="border-t border-border py-10">
+        <h2 className="text-2xl font-extrabold tracking-tight text-foreground">
+          Работаем с ведущими производителями линз
+        </h2>
+        <ul className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {lensMakers.map((m, i) => (
+            <li key={m.name}>
+              <Reveal delay={i * 50}>
+                <div className="rounded-lg border border-border bg-card px-4 py-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-md">
+                  <p className="text-base font-extrabold tracking-tight text-foreground">{m.name}</p>
+                  <p className="mt-1 text-xs text-muted-foreground">{m.country}</p>
+                </div>
+              </Reveal>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Уровни линз */}
+      <section id="urovni" className="scroll-mt-24 border-t border-border py-10">
+        <h2 className="text-2xl font-extrabold tracking-tight text-foreground">Три уровня прогрессивных линз</h2>
+        <p className="mt-3 max-w-2xl text-muted-foreground">
+          Чем выше уровень дизайна, тем шире зоны чёткого зрения и тем быстрее проходит адаптация.
+        </p>
+        <ul className="mt-6 grid gap-4 md:grid-cols-3">
+          {tiers.map((t, i) => (
+            <li key={t.name}>
+              <Reveal delay={i * 90} className="h-full">
+                <div
+                  className={`relative flex h-full flex-col rounded-xl border p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${
+                    t.featured ? "border-primary bg-card shadow-md" : "border-border bg-card"
+                  }`}
+                >
+                  {t.featured && (
+                    <span className="absolute -top-3 left-6 rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground">
+                      Выбирают чаще всего
+                    </span>
+                  )}
+                  <h3 className="text-lg font-extrabold text-foreground">{t.name}</h3>
+                  <p className="mt-2 text-2xl font-extrabold text-primary">{t.price}</p>
+                  <p className="text-xs text-muted-foreground">{t.note}</p>
+                  <ul className="mt-4 flex-1 space-y-2 text-sm text-muted-foreground">
+                    {t.features.map((f) => (
+                      <li key={f} className="flex gap-2">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+                        <span>{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href="#zapis"
+                    className={`mt-5 inline-flex items-center justify-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold transition-colors ${
+                      t.featured
+                        ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                        : "border border-input bg-background text-foreground hover:bg-accent"
+                    }`}
+                  >
+                    Подобрать <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  </a>
+                </div>
+              </Reveal>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Плюсы и минусы */}
+      <section className="border-t border-border py-10">
+        <h2 className="text-2xl font-extrabold tracking-tight text-foreground">
+          Преимущества и о чём важно знать заранее
+        </h2>
+        <div className="mt-6 grid gap-4 md:grid-cols-2">
+          <Reveal>
+            <div className="h-full rounded-xl border border-border bg-card p-6">
+              <h3 className="font-bold text-foreground">Преимущества</h3>
+              <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
+                {pros.map((p) => (
+                  <li key={p} className="flex gap-3">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                      <Check className="h-3.5 w-3.5" aria-hidden="true" />
+                    </span>
+                    <span>{p}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+          <Reveal delay={120}>
+            <div className="h-full rounded-xl border border-border bg-secondary p-6">
+              <h3 className="font-bold text-foreground">О чём важно знать</h3>
+              <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
+                {cons.map((c) => (
+                  <li key={c} className="flex gap-3">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-foreground/10 text-foreground">
+                      <Minus className="h-3.5 w-3.5" aria-hidden="true" />
+                    </span>
+                    <span>{c}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
 
       {/* Блок 2: Кому подходят */}
       <section className="border-t border-border py-10">
