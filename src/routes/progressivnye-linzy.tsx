@@ -135,10 +135,11 @@ const whom = [
 ];
 
 const priceRanges = [
-  { name: "Базовые прогрессивные линзы", price: "5 700 – 12 000 ₽", text: "Стандартные дизайны для первых прогрессивных очков и несложных рецептов." },
-  { name: "Премиальные серии", price: "12 000 – 25 000 ₽", text: "Расширенные зоны обзора, быстрая адаптация, покрытия премиум-класса." },
-  { name: "Индивидуальные дизайны", price: "25 000 – 40 000+ ₽", text: "Линзы, рассчитанные под ваш рецепт, оправу и параметры посадки." },
+  { name: "Базовые прогрессивные линзы", price: "5 700 – 16 000 ₽", text: "Стандартные дизайны для первых прогрессивных очков и несложных рецептов." },
+  { name: "Премиальные серии", price: "19 900 – 31 900 ₽", text: "Расширенные зоны обзора, фотохром и покрытия премиум-класса." },
+  { name: "Индивидуальные дизайны", price: "36 100 – 47 000 ₽", text: "Линзы, рассчитанные под ваш рецепт, оправу и параметры посадки." },
 ];
+
 
 const distances = [
   { zone: "Вдаль", dist: "более 120 см", part: "верхняя часть линзы", icon: Car },
@@ -156,7 +157,7 @@ const tiers = [
   },
   {
     name: "Улучшенные",
-    price: "от 12 000 ₽",
+    price: "от 16 000 ₽",
     note: "за пару",
     features: [
       "Расширенные зоны чёткого зрения",
@@ -167,7 +168,7 @@ const tiers = [
   },
   {
     name: "Премиум",
-    price: "от 25 000 ₽",
+    price: "от 36 100 ₽",
     note: "за пару",
     features: [
       "Максимально широкие зоны обзора",
@@ -180,15 +181,12 @@ const tiers = [
 ];
 
 const lensMakers = [
-  { name: "Essilor", country: "Франция" },
-  { name: "Varilux", country: "Франция" },
-  { name: "Hoya", country: "Япония" },
-  { name: "Nikon", country: "Япония" },
-  { name: "Seiko", country: "Япония" },
-  { name: "Zeiss", country: "Германия" },
-  { name: "Rodenstock", country: "Германия" },
-  { name: "Shamir", country: "Израиль" },
+  { name: "Essilor", country: "Франция · 8 моделей в каталоге" },
+  { name: "Varilux", country: "Франция · серии Liberty, Comfort Max, Physio, X" },
+  { name: "Hoya", country: "Япония · 5 моделей в каталоге" },
+  { name: "Hoyalux", country: "Япония · Daynamic, iD LifeStyle 4, iD MySelf, Balansis" },
 ];
+
 
 const pros = [
   "Одни очки вместо двух-трёх пар",
@@ -215,7 +213,7 @@ const faqs = [
   },
   {
     q: "Сколько стоят прогрессивные линзы?",
-    a: "В нашем каталоге — от 5 700 ₽ за базовые модели до более 40 000 ₽ за индивидуальные дизайны премиальных серий Varilux и Hoyalux.",
+    a: "В нашем каталоге — от 5 700 ₽ за базовую модель Essilor Essentials Everyday до 47 000 ₽ за индивидуальные дизайны Hoyalux iD и премиальные серии Varilux.",
   },
   {
     q: "Как быстро можно привыкнуть к прогрессивным линзам?",
@@ -273,7 +271,7 @@ function ProgressiveLensesPage() {
                 Прогрессивные линзы для очков
               </h1>
               <p className="mt-3 max-w-2xl text-muted-foreground">
-                Essilor, Varilux, Hoyalux и другие серии — от 5 700 ₽ до индивидуальных дизайнов.
+                Essilor, Varilux и Hoyalux — 13 моделей в каталоге, от 5 700 до 47 000 ₽.
                 Подбор по рецепту, образу жизни и параметрам посадки в салоне на ул. Кирочная, 17.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
@@ -573,9 +571,10 @@ function ProgressiveLensesPage() {
       <section className="border-t border-border py-10">
         <h2 className="text-2xl font-extrabold tracking-tight text-foreground">Сколько стоят прогрессивные линзы</h2>
         <p className="mt-3 max-w-2xl text-muted-foreground">
-          В нашем каталоге представлены модели от 5 700 ₽ до более 40 000 ₽. Итоговая цена зависит
-          от серии линзы, сложности рецепта и выбранных покрытий.
+          В каталоге 13 моделей прогрессивных линз: от 5 700 ₽ до 47 000 ₽ за пару. Итоговая цена
+          зависит от серии линзы, сложности рецепта и выбранных покрытий.
         </p>
+
         <ul className="mt-6 grid gap-4 md:grid-cols-3">
           {priceRanges.map((p, i) => (
             <li key={p.name}>
@@ -601,7 +600,23 @@ function ProgressiveLensesPage() {
           </a>{" "}
           уточняется на записи.
         </p>
+
+        <h3 className="mt-10 text-xl font-extrabold tracking-tight text-foreground">
+          Модели в наличии и цены
+        </h3>
+        <ul className="mt-4 divide-y divide-border rounded-lg border border-border bg-card">
+          {catalogModels.map((m) => (
+            <li
+              key={m.name}
+              className="flex flex-wrap items-baseline justify-between gap-2 px-5 py-3 transition-colors hover:bg-accent/50"
+            >
+              <span className="text-sm font-medium text-foreground">{m.name}</span>
+              <span className="text-sm font-extrabold text-primary">{m.price}</span>
+            </li>
+          ))}
+        </ul>
       </section>
+
 
       {/* Блок 6: Подбор + CTA */}
       <section id="zapis" className="scroll-mt-24 border-t border-border py-10">
