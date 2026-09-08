@@ -181,15 +181,12 @@ const tiers = [
 ];
 
 const lensMakers = [
-  { name: "Essilor", country: "Франция" },
-  { name: "Varilux", country: "Франция" },
-  { name: "Hoya", country: "Япония" },
-  { name: "Nikon", country: "Япония" },
-  { name: "Seiko", country: "Япония" },
-  { name: "Zeiss", country: "Германия" },
-  { name: "Rodenstock", country: "Германия" },
-  { name: "Shamir", country: "Израиль" },
+  { name: "Essilor", country: "Франция · 8 моделей в каталоге" },
+  { name: "Varilux", country: "Франция · серии Liberty, Comfort Max, Physio, X" },
+  { name: "Hoya", country: "Япония · 5 моделей в каталоге" },
+  { name: "Hoyalux", country: "Япония · Daynamic, iD LifeStyle 4, iD MySelf, Balansis" },
 ];
+
 
 const pros = [
   "Одни очки вместо двух-трёх пар",
