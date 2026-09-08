@@ -600,7 +600,23 @@ function ProgressiveLensesPage() {
           </a>{" "}
           уточняется на записи.
         </p>
+
+        <h3 className="mt-10 text-xl font-extrabold tracking-tight text-foreground">
+          Модели в наличии и цены
+        </h3>
+        <ul className="mt-4 divide-y divide-border rounded-lg border border-border bg-card">
+          {catalogModels.map((m) => (
+            <li
+              key={m.name}
+              className="flex flex-wrap items-baseline justify-between gap-2 px-5 py-3 transition-colors hover:bg-accent/50"
+            >
+              <span className="text-sm font-medium text-foreground">{m.name}</span>
+              <span className="text-sm font-extrabold text-primary">{m.price}</span>
+            </li>
+          ))}
+        </ul>
       </section>
+
 
       {/* Блок 6: Подбор + CTA */}
       <section id="zapis" className="scroll-mt-24 border-t border-border py-10">
