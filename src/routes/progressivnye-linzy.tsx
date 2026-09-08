@@ -271,7 +271,7 @@ function ProgressiveLensesPage() {
                 Прогрессивные линзы для очков
               </h1>
               <p className="mt-3 max-w-2xl text-muted-foreground">
-                Essilor, Varilux, Hoyalux и другие серии — от 5 700 ₽ до индивидуальных дизайнов.
+                Essilor, Varilux и Hoyalux — 13 моделей в каталоге, от 5 700 до 47 000 ₽.
                 Подбор по рецепту, образу жизни и параметрам посадки в салоне на ул. Кирочная, 17.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
