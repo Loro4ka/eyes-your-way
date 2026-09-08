@@ -571,9 +571,10 @@ function ProgressiveLensesPage() {
       <section className="border-t border-border py-10">
         <h2 className="text-2xl font-extrabold tracking-tight text-foreground">Сколько стоят прогрессивные линзы</h2>
         <p className="mt-3 max-w-2xl text-muted-foreground">
-          В нашем каталоге представлены модели от 5 700 ₽ до более 40 000 ₽. Итоговая цена зависит
-          от серии линзы, сложности рецепта и выбранных покрытий.
+          В каталоге 13 моделей прогрессивных линз: от 5 700 ₽ до 47 000 ₽ за пару. Итоговая цена
+          зависит от серии линзы, сложности рецепта и выбранных покрытий.
         </p>
+
         <ul className="mt-6 grid gap-4 md:grid-cols-3">
           {priceRanges.map((p, i) => (
             <li key={p.name}>
