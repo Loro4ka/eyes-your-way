@@ -308,20 +308,9 @@ function WomenFramesPage() {
     filters.brand !== null && filters.brand.toUpperCase() === brand.toUpperCase();
 
   const selectCategory = (title: string) => {
-    const shapeMatch = frames.some((f) => f.shape === title);
     setFilters((prev) => ({
       ...prev,
-      shape: shapeMatch ? (prev.shape === title ? null : title) : null,
-      material:
-        title === "Пластиковые"
-          ? prev.material === "Пластик" ? null : "Пластик"
-          : title === "Тонкие металлические"
-            ? prev.material === "Металл" ? null : "Металл"
-            : prev.material,
-      brand:
-        title === "Дизайнерские"
-          ? prev.brand === "Ana Hickmann" ? null : "Ana Hickmann"
-          : prev.brand,
+      shape: prev.shape === title ? null : title,
     }));
     document.getElementById("katalog")?.scrollIntoView({ behavior: "smooth" });
   };
