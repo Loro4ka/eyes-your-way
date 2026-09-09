@@ -338,7 +338,7 @@ function WomenFramesPage() {
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-14 md:py-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
           <div>
             <div className="flex flex-wrap gap-2">
-              {[`Более ${totalModels} моделей`, `${brandList.length} брендов`, "Примерка бесплатно", "От 1 500 ₽"].map((chip) => (
+              {[`${totalModels} моделей`, `${brandList.length} брендов`, "Примерка бесплатно", "От 2 000 ₽"].map((chip) => (
                 <span
                   key={chip}
                   className="rounded-full border border-primary/30 bg-background px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary"
@@ -352,8 +352,9 @@ function WomenFramesPage() {
               <span className="block text-primary">для очков</span>
             </h1>
             <p className="mt-5 max-w-xl text-[17px] leading-relaxed text-muted-foreground">
-              Круглые, овальные, cat-eye, тонкий металл и титан — в салонах Оптики 100% в
-              Санкт-Петербурге. Примерьте понравившуюся модель и сразу закажите в неё линзы.
+              «Кошачий глаз», прямоугольные, бабочка, овал, тонкий металл и титан — в салоне
+              Оптики 100% в Санкт-Петербурге, ул. Кирочная, 17. Примерьте понравившуюся модель
+              и сразу закажите в неё линзы.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button size="lg" className="rounded-lg px-7 text-base font-bold" asChild>
