@@ -19,14 +19,17 @@ import frameGeo from "@/assets/frame-geo.jpg";
 function shapeImage(shape: string) {
   switch (shape) {
     case "Круглые":
+    case "Панто":
       return frameRound;
-    case "Cat-eye":
     case "Кошачий глаз":
+    case "Бабочка":
       return frameCatEye;
-    case "Овальные":
+    case "Овал":
+    case "Лектор":
       return frameOval;
-    case "Многоугольные":
-    case "Квадратные":
+    case "Многоугольник":
+    case "Квадрат":
+    case "Aviator":
       return frameGeo;
     default:
       return frameRect;
@@ -68,140 +71,149 @@ type Frame = {
 };
 
 const frames: Frame[] = [
-  { model: "LION`S HEART SN240317-510", brand: "LION`S HEART", shape: "Классические", material: "Металл", color: "Чёрный", size: "M", price: 3900 },
-  { model: "LION`S HEART SN231123-2", brand: "LION`S HEART", shape: "Кошачий глаз", material: "Металл", color: "Золотой", size: "M", price: 3900 },
-  { model: "LION`S HEART SN231129-2", brand: "LION`S HEART", shape: "Круглые", material: "Металл", color: "Бронзовый", size: "S", price: 3900 },
-  { model: "LION`S HEART SN250102-3", brand: "LION`S HEART", shape: "Многоугольные", material: "Металл", color: "Серебристый", size: "M", price: 3900 },
-  { model: "LION`S HEART SN250886-2", brand: "LION`S HEART", shape: "Овальные", material: "Металл", color: "Зелёный", size: "S", price: 4000 },
-  { model: "LION`S HEART SN230420-1", brand: "LION`S HEART", shape: "Классические", material: "Пластик", color: "Синий", size: "L", price: 4000 },
-  { model: "LION`S HEART SN230896-1", brand: "LION`S HEART", shape: "Кошачий глаз", material: "Металл", color: "Фиолетовый", size: "M", price: 4400 },
-  { model: "LION`S HEART SN230084-3", brand: "LION`S HEART", shape: "Круглые", material: "Титан", color: "Золотой", size: "S", price: 5000 },
-  { model: "DACCHI D1042", brand: "DACCHI", shape: "Прямоугольные", material: "Пластик", color: "Чёрный", size: "M", price: 1500 },
-  { model: "DACCHI D3218", brand: "DACCHI", shape: "Cat-eye", material: "Пластик", color: "Коричневый", size: "S", price: 1800 },
-  { model: "DACCHI D8110", brand: "DACCHI", shape: "Овальные", material: "Металл", color: "Золотой", size: "M", price: 1900 },
-  { model: "MARIO ROSSI MR01", brand: "Mario Rossi", shape: "Круглые", material: "Металл", color: "Серебристый", size: "S", price: 2400 },
-  { model: "MARIO ROSSI MR27", brand: "Mario Rossi", shape: "Cat-eye", material: "Ацетат", color: "Розовый", size: "M", price: 2900 },
-  { model: "NIKITANA NK5510", brand: "Nikitana", shape: "Квадратные", material: "Пластик", color: "Прозрачный", size: "L", price: 2200 },
-  { model: "NIKITANA NK7220", brand: "Nikitana", shape: "Прямоугольные", material: "Металл", color: "Чёрный", size: "M", price: 2600 },
-  { model: "TROPICAL SUSAN", brand: "Tropical", shape: "Круглые", material: "Ацетат", color: "Коричневый", size: "S", price: 3200 },
-  { model: "TROPICAL MIA", brand: "Tropical", shape: "Овальные", material: "Пластик", color: "Синий", size: "M", price: 3400 },
-  { model: "ANA HICKMANN AH6412", brand: "Ana Hickmann", shape: "Cat-eye", material: "Титан", color: "Золотой", size: "M", price: 7900 },
-  { model: "ANA HICKMANN AH1398", brand: "Ana Hickmann", shape: "Квадратные", material: "Ацетат", color: "Чёрный", size: "L", price: 8400 },
-  { model: "MARIO ROSSI MR44", brand: "Mario Rossi", shape: "Круглые", material: "Титан", color: "Серебристый", size: "S", price: 5600 },
-  { model: "GUESS GU2857", brand: "GUESS", shape: "Cat-eye", material: "Ацетат", color: "Чёрный", size: "M", price: 6900 },
-  { model: "GUESS GU50110", brand: "GUESS", shape: "Квадратные", material: "Пластик", color: "Коричневый", size: "L", price: 6400 },
-  { model: "FURLA VFU499", brand: "FURLA", shape: "Овальные", material: "Ацетат", color: "Розовый", size: "M", price: 8900 },
-  { model: "FURLA VFU352", brand: "FURLA", shape: "Прямоугольные", material: "Металл", color: "Золотой", size: "M", price: 8400 },
-  { model: "ST.LOUISE SL8421", brand: "ST.LOUISE", shape: "Классические", material: "Металл", color: "Серебристый", size: "M", price: 4200 },
-  { model: "YALEA YA047", brand: "YALEA", shape: "Круглые", material: "Ацетат", color: "Прозрачный", size: "S", price: 7200 },
-  { model: "OKULA OK118", brand: "OKULA", shape: "Квадратные", material: "Пластик", color: "Синий", size: "M", price: 3600 },
-  { model: "POLAROID PLD D414", brand: "POLAROID", shape: "Прямоугольные", material: "Пластик", color: "Чёрный", size: "M", price: 4400 },
-  { model: "MAX&CO MO5123", brand: "MAX&CO", shape: "Cat-eye", material: "Ацетат", color: "Коричневый", size: "M", price: 9400 },
-  { model: "ESCADA ES1012", brand: "ESCADA", shape: "Овальные", material: "Металл", color: "Золотой", size: "S", price: 11200 },
-  { model: "CAROLINA HERRERA CH0042", brand: "CAROLINA HERRERA", shape: "Квадратные", material: "Ацетат", color: "Чёрный", size: "M", price: 12800 },
-  { model: "WILLIAM MORRIS WM50134", brand: "WILLIAM MORRIS", shape: "Круглые", material: "Металл", color: "Бронзовый", size: "S", price: 6800 },
-  { model: "O.D.L OD2210", brand: "O.D.L", shape: "Прямоугольные", material: "Металл", color: "Серебристый", size: "M", price: 3900 },
-  { model: "PIERRE CARDIN PC6879", brand: "PIERRE CARDIN", shape: "Классические", material: "Металл", color: "Чёрный", size: "M", price: 5900 },
-  { model: "MARC JACOBS MJ1019", brand: "MARC JACOBS", shape: "Cat-eye", material: "Ацетат", color: "Фиолетовый", size: "M", price: 11900 },
-  { model: "VOGUE VO5286", brand: "VOGUE", shape: "Квадратные", material: "Пластик", color: "Прозрачный", size: "S", price: 5400 },
-  { model: "SILHOUETTE SPX 1608", brand: "SILHOUETTE", shape: "Овальные", material: "Титан", color: "Серебристый", size: "M", price: 18900 },
-  { model: "TOUS VTOA52", brand: "TOUS", shape: "Круглые", material: "Ацетат", color: "Розовый", size: "S", price: 8600 },
-  { model: "WOOW WOOLAA1", brand: "WOOW", shape: "Многоугольные", material: "Ацетат", color: "Зелёный", size: "M", price: 13400 },
-  { model: "BLUMARINE BM5012", brand: "BLUMARINE", shape: "Cat-eye", material: "Металл", color: "Золотой", size: "M", price: 9800 },
-  { model: "LAURA BIAGIOTTI LB505", brand: "LAURA BIAGIOTTI", shape: "Овальные", material: "Металл", color: "Бронзовый", size: "M", price: 6200 },
-  { model: "MAX MARA MM1390", brand: "MAX MARA", shape: "Прямоугольные", material: "Ацетат", color: "Чёрный", size: "M", price: 12400 },
+  { model: "LION`S HEART 8811-1 clip", brand: "LION`S HEART", shape: "Бабочка", material: "Пластик", color: "Черный", size: "56 мм", price: 2300 },
+  { model: "LION`S HEART 8810-3 clip", brand: "LION`S HEART", shape: "Бабочка", material: "Пластик", color: "Бордовый/Розовый", size: "55 мм", price: 4000 },
+  { model: "LION`S HEART 8810-4 clip", brand: "LION`S HEART", shape: "Бабочка", material: "Пластик", color: "Синий/Голубой", size: "55 мм", price: 4000 },
+  { model: "LION`S HEART SN200780-2", brand: "LION`S HEART", shape: "Прямоугольные", material: "Металл", color: "Фиолетовый/Сиреневый", size: "55 мм", price: 4000 },
+  { model: "LION`S HEART SN230418-2", brand: "LION`S HEART", shape: "Прямоугольные", material: "Металл", color: "Золото/Желтый", size: "54 мм", price: 4000 },
+  { model: "LION`S HEART SN230418-3", brand: "LION`S HEART", shape: "Прямоугольные", material: "Металл", color: "Фиолетовый/Сиреневый", size: "54 мм", price: 4000 },
+  { model: "LION`S HEART SN230420-1", brand: "LION`S HEART", shape: "Прямоугольные", material: "Металл", color: "Серебро/Серый/Белый", size: "52 мм", price: 4000 },
+  { model: "LION`S HEART SN230420-2", brand: "LION`S HEART", shape: "Прямоугольные", material: "Металл", color: "Золото/Желтый", size: "52 мм", price: 4000 },
+  { model: "HICKMANN 6031-C02", brand: "HICKMANN", shape: "Многоугольник", material: "Пластик", color: "Синий/Голубой", size: "50 мм", price: 7000 },
+  { model: "POLAROID D545-C9A", brand: "POLAROID", shape: "Кошачий глаз", material: "Пластик", color: "Бордовый/Розовый", size: "57 мм", price: 7200 },
+  { model: "O.D.L Estetica Neva-11", brand: "O.D.L", shape: "Кошачий глаз", material: "Ацетат", color: "Мультиколор", size: "52 мм", price: 6900 },
+  { model: "O.D.L Estetica Angel-0 бежевый", brand: "O.D.L", shape: "Овал", material: "Ацетат", color: "Бронза/Коричневый", size: "48 мм", price: 7500 },
+  { model: "O.D.L Estetica Lector-7", brand: "O.D.L", shape: "Лектор", material: "Ацетат", color: "Красный", size: "46 мм", price: 7500 },
+  { model: "ST.LOUISE SD2008-02", brand: "ST.LOUISE", shape: "Овал", material: "Металл", color: "Золото/Желтый", size: "53 мм", price: 7000 },
+  { model: "ST.LOUISE SL1058-01", brand: "ST.LOUISE", shape: "Кошачий глаз", material: "Металл", color: "Черный", size: "55 мм", price: 7000 },
+  { model: "ST.LOUISE SL1081-01", brand: "ST.LOUISE", shape: "Овал", material: "Металл", color: "Золото/Желтый", size: "54 мм", price: 7000 },
+  { model: "MEREL 8277-06", brand: "MEREL", shape: "Кошачий глаз", material: "Пластик", color: "Красный", size: "54 мм", price: 4500 },
+  { model: "MEREL MS8276-02", brand: "MEREL", shape: "Прямоугольные", material: "Пластик", color: "Бордовый/Розовый", size: "55 мм", price: 4500 },
+  { model: "MEREL MS8322-01", brand: "MEREL", shape: "Кошачий глаз", material: "Пластик", color: "Черный", size: "53 мм", price: 4500 },
+  { model: "SAFILO S-S 7A 605-086", brand: "SAFILO SEVENTH STREET", shape: "Кошачий глаз", material: "Пластик", color: "Бронза/Коричневый", size: "53 мм", price: 6100 },
+  { model: "SAFILO S-S 7A 577-807", brand: "SAFILO SEVENTH STREET", shape: "Бабочка", material: "Пластик", color: "Черный", size: "50 мм", price: 6800 },
+  { model: "DONNA DN3080-5", brand: "DONNA", shape: "Прямоугольные", material: "Пластик", color: "Красный", size: "53 мм", price: 5200 },
+  { model: "LINA LATINI 62600-003", brand: "LINA LATINI", shape: "Прямоугольные", material: "Титан", color: "Золото/Желтый", size: "53 мм", price: 7200 },
+  { model: "LINA LATINI 62600-033", brand: "LINA LATINI", shape: "Прямоугольные", material: "Титан", color: "Бордовый/Розовый", size: "53 мм", price: 7200 },
+  { model: "MEGAPOLIS free line 2015 BROWN", brand: "MEGAPOLIS", shape: "Круглые", material: "Металл", color: "Бронза/Коричневый", size: "48 мм", price: 4950 },
+  { model: "MEGAPOLIS city 1356 BLUE", brand: "MEGAPOLIS", shape: "Прямоугольные", material: "Пластик", color: "Черный", size: "52 мм", price: 6500 },
+  { model: "RICO MIRADO 188 BLUE", brand: "RICO MIRADO", shape: "Панто", material: "Металл", color: "Синий/Голубой", size: "52 мм", price: 5200 },
+  { model: "RICO MIRADO 67 BLACK", brand: "RICO MIRADO", shape: "Круглые", material: "Металл", color: "Черный", size: "52 мм", price: 5200 },
+  { model: "WAGNER+KUHNER 5330-1", brand: "WAGNER+KUHNER", shape: "Кошачий глаз", material: "Металл", color: "Золото/Желтый", size: "53 мм", price: 6500 },
+  { model: "WAGNER+KUHNER 5363-1", brand: "WAGNER+KUHNER", shape: "Кошачий глаз", material: "Пластик", color: "Мультиколор", size: "53 мм", price: 6500 },
+  { model: "BALLET Extra 24457-1", brand: "BALLET Extra", shape: "Кошачий глаз", material: "Пластик", color: "Серебро/Серый/Белый", size: "55 мм", price: 4100 },
+  { model: "BANISS BR5080-02", brand: "BANISS", shape: "Круглые", material: "Металл", color: "Серебро/Серый/Белый", size: "53 мм", price: 3100 },
+  { model: "BLUE CLASSIC 583-10", brand: "BLUE CLASSIC", shape: "Кошачий глаз", material: "Металл", color: "Черный", size: "52 мм", price: 2500 },
+  { model: "BULGET 6464-P01", brand: "BULGET", shape: "Прямоугольные", material: "Пластик", color: "Черный", size: "52 мм", price: 7200 },
+  { model: "DACCHI 37753-2", brand: "DACCHI", shape: "Панто", material: "Пластик", color: "Бронза/Коричневый", size: "52 мм", price: 2000 },
+  { model: "ELFSPIRIT 4386-005", brand: "ELFSPIRIT", shape: "Aviator", material: "Металл", color: "Серебро/Серый/Белый", size: "54 мм", price: 6400 },
+  { model: "GLORY 542 BLUE", brand: "GLORY", shape: "Круглые", material: "Металл", color: "Синий/Голубой", size: "48 мм", price: 4000 },
+  { model: "LION`S HEART 3203-C3", brand: "LION`S HEART ДЕТСКИЕ", shape: "Прямоугольные", material: "Pebax", color: "Черный", size: "53 мм", price: 4400 },
+  { model: "MONICA MS312453-3", brand: "MONICA", shape: "Прямоугольные", material: "Металл", color: "Серебро/Серый/Белый", size: "54 мм", price: 5300 },
+  { model: "SAFILO 1090-YOB", brand: "SAFILO", shape: "Панто", material: "Пластик", color: "Синий/Голубой", size: "49 мм", price: 5400 },
 ];
 
 // Полный список брендов салона с количеством моделей в наличии.
 // Сортировка: LION`S HEART первым, далее по убыванию количества.
 const brandList: [string, number][] = [
-  ["LION`S HEART", 23],
+  ["LION`S HEART", 79],
   ["GUESS", 36],
+  ["ANA HICKMANN", 23],
+  ["HICKMANN", 22],
   ["FURLA", 20],
-  ["ST.LOUISE", 19],
+  ["VON BOGEN", 19],
+  ["ESCADA", 17],
+  ["VOGUE", 17],
   ["YALEA", 17],
-  ["OKULA", 16],
-  ["POLAROID", 16],
+  ["CAROLINA HERRERA", 16],
   ["MAX&CO", 16],
-  ["ESCADA", 15],
-  ["CAROLINA HERRERA", 14],
+  ["OKULA", 16],
+  ["POLAROID", 15],
+  ["SILHOUETTE", 15],
+  ["O.D.L", 14],
+  ["ST.LOUISE", 13],
   ["WILLIAM MORRIS", 12],
-  ["ANA HICKMANN", 11],
-  ["O.D.L", 11],
-  ["PIERRE CARDIN", 11],
+  ["ETNIA BARCELONA", 11],
+  ["FOR ART'S SAKE", 10],
   ["MARC JACOBS", 10],
-  ["VOGUE", 10],
-  ["SILHOUETTE", 9],
-  ["TOUS", 9],
-  ["WOOW", 9],
+  ["PIERRE CARDIN", 10],
+  ["TOUS", 10],
   ["BLUMARINE", 8],
+  ["WOOW", 8],
   ["LAURA BIAGIOTTI", 7],
   ["MAX MARA", 7],
   ["BELUTTI", 6],
   ["ENNI MARCO", 6],
-  ["ETNIA BARCELONA", 6],
   ["MEREL", 6],
-  ["VON BOGEN", 6],
-  ["HICKMANN", 5],
-  ["FOR ART'S SAKE", 5],
-  ["SAFILO SEVENTH STREET", 5],
+  ["NINA RICCI", 6],
+  ["TRUSSARDI", 6],
+  ["BORBONESE", 5],
+  ["ELEVENPARIS", 5],
+  ["KARL LAGERFELD", 5],
+  ["LOOL", 5],
+  ["MOREL", 5],
   ["PRODESIGN", 5],
-  ["NINA RICCI", 5],
+  ["SAFILO SEVENTH STREET", 5],
   ["STEPPER", 5],
-  ["BORBONESE", 4],
   ["DONNA", 4],
-  ["LOOL", 4],
-  ["MOREL", 4],
+  ["AVO", 3],
+  ["CHARLES STONE", 3],
   ["NOMAD", 3],
-  ["BANISS", 2],
+  ["REVLON", 3],
+  ["BOLON", 2],
   ["CARRERA", 2],
-  ["GLORY", 2],
+  ["EMPORIO ARMANI", 2],
   ["K-WAY", 2],
   ["KOALI", 2],
   ["LANCEL", 2],
   ["LINA LATINI", 2],
   ["MEGAPOLIS", 2],
+  ["MOLSION", 2],
   ["OPERA Chic", 2],
-  ["REVLON", 2],
   ["RICO MIRADO", 2],
   ["SKAGA", 2],
   ["VALENTIN YUDASHKIN", 2],
   ["WAGNER+KUHNER", 2],
-  ["DACCHI", 2],
-  ["EMPORIO ARMANI", 2],
   ["BALLET Extra", 1],
+  ["BANISS", 1],
   ["BLUE CLASSIC", 1],
   ["BULGET", 1],
   ["CONVERSE", 1],
+  ["DACCHI", 1],
   ["ELFSPIRIT", 1],
   ["GIGISTUDIOS", 1],
+  ["GLORY", 1],
+  ["HERMOSSA", 1],
   ["HUGO BOSS", 1],
-  ["KARL LAGERFELD", 1],
+  ["LION`S HEART ДЕТСКИЕ", 1],
   ["LOZZA", 1],
+  ["LULU CASTAGNETTE", 1],
   ["MANILA GRACE", 1],
   ["MARIUS MOREL", 1],
+  ["MOLESKINE", 1],
   ["MONICA", 1],
   ["PEPE JEANS", 1],
   ["POLICE", 1],
   ["RAY-BAN", 1],
+  ["ROBERTA DI CAMERINO", 1],
   ["ROBERTO CAVALLI", 1],
   ["SAFILO", 1],
+  ["T-CHARGE", 1],
   ["TED BAKER", 1],
-  ["LION`S HEART ДЕТСКИЕ", 1],
+  ["TOM FORD", 1],
 ];
 
 const totalModels = brandList.reduce((sum, [, count]) => sum + count, 0);
 
-const categories: [string, string][] = [
-
-  ["Круглые", "Мягкая ретро-геометрия, хорошо смотрятся на лицах с угловатыми чертами."],
-  ["Овальные", "Самая универсальная форма: подходит почти под любые пропорции лица."],
-  ["Прямоугольные", "Строгие модели для работы и деловых образов, вытягивают округлое лицо."],
-  ["Квадратные", "Выразительный акцент, уравновешивает мягкие округлые черты."],
-  ["Cat-eye", "Приподнятые уголки визуально «открывают» взгляд и подчёркивают скулы."],
-  ["Тонкие металлические", "Минимально заметная оправа: лёгкая, аккуратная, почти невидимая."],
-  ["Пластиковые", "Насыщенные цвета и заметная форма, устойчивы к деформации."],
-  ["Дизайнерские", "Модели брендов Ana Hickmann и Tropical — акцентная деталь образа."],
+const categories: [string, string, number][] = [
+  ["Кошачий глаз", "Приподнятые уголки визуально «открывают» взгляд и подчёркивают скулы.", 145],
+  ["Прямоугольные", "Строгие модели для работы и деловых образов, вытягивают округлое лицо.", 143],
+  ["Бабочка", "Расширенная кверху форма — женственный акцент и крупный световой проём.", 92],
+  ["Овал", "Самая универсальная форма: подходит почти под любые пропорции лица.", 45],
+  ["Многоугольник", "Геометрия с гранями — заметная деталь образа без лишней массивности.", 44],
+  ["Круглые", "Мягкая ретро-геометрия, хорошо смотрится на лицах с угловатыми чертами.", 36],
+  ["Панто", "Классика с лёгким изгибом верхней линии, спокойная и универсальная.", 28],
+  ["Квадрат", "Выразительный акцент, уравновешивает мягкие округлые черты.", 23],
 ];
 
 const faq: [string, string][] = [
@@ -211,12 +223,13 @@ const faq: [string, string][] = [
   ],
   [
     "Какая оправа подойдёт для круглого лица?",
-    "Формы с чёткими линиями: прямоугольные, квадратные и cat-eye. Они добавляют лицу структуры. Круглых и очень мелких моделей лучше избегать.",
+    "Формы с чёткими линиями: прямоугольные, квадратные и «кошачий глаз». Они добавляют лицу структуры. Круглых и очень мелких моделей лучше избегать.",
   ],
   [
     "Сколько стоят женские оправы?",
-    "В каталоге модели от 1 500 ₽ (например, DACCHI). Дизайнерские и титановые оправы — от 5 000 ₽. Итоговая стоимость очков зависит ещё и от выбранных линз.",
+    "В каталоге модели от 2 000 ₽ (например, DACCHI 37753-2). Большинство моделей — 4 000–8 000 ₽, дизайнерские и титановые доходят до 42 000 ₽. Итоговая стоимость очков зависит ещё и от выбранных линз.",
   ],
+
   [
     "Можно ли установить линзы в любую оправу?",
     "Почти в любую, включая вашу собственную, если она целая и не деформирована. Ограничения бывают у безободковых и сильно изогнутых оправ при высоких диоптриях — это проверяют на приёме.",
@@ -295,20 +308,9 @@ function WomenFramesPage() {
     filters.brand !== null && filters.brand.toUpperCase() === brand.toUpperCase();
 
   const selectCategory = (title: string) => {
-    const shapeMatch = frames.some((f) => f.shape === title);
     setFilters((prev) => ({
       ...prev,
-      shape: shapeMatch ? (prev.shape === title ? null : title) : null,
-      material:
-        title === "Пластиковые"
-          ? prev.material === "Пластик" ? null : "Пластик"
-          : title === "Тонкие металлические"
-            ? prev.material === "Металл" ? null : "Металл"
-            : prev.material,
-      brand:
-        title === "Дизайнерские"
-          ? prev.brand === "Ana Hickmann" ? null : "Ana Hickmann"
-          : prev.brand,
+      shape: prev.shape === title ? null : title,
     }));
     document.getElementById("katalog")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -336,7 +338,7 @@ function WomenFramesPage() {
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-14 md:py-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
           <div>
             <div className="flex flex-wrap gap-2">
-              {[`Более ${totalModels} моделей`, `${brandList.length} брендов`, "Примерка бесплатно", "От 1 500 ₽"].map((chip) => (
+              {[`${totalModels} моделей`, `${brandList.length} брендов`, "Примерка бесплатно", "От 2 000 ₽"].map((chip) => (
                 <span
                   key={chip}
                   className="rounded-full border border-primary/30 bg-background px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary"
@@ -350,8 +352,9 @@ function WomenFramesPage() {
               <span className="block text-primary">для очков</span>
             </h1>
             <p className="mt-5 max-w-xl text-[17px] leading-relaxed text-muted-foreground">
-              Круглые, овальные, cat-eye, тонкий металл и титан — в салонах Оптики 100% в
-              Санкт-Петербурге. Примерьте понравившуюся модель и сразу закажите в неё линзы.
+              «Кошачий глаз», прямоугольные, бабочка, овал, тонкий металл и титан — в салоне
+              Оптики 100% в Санкт-Петербурге, ул. Кирочная, 17. Примерьте понравившуюся модель
+              и сразу закажите в неё линзы.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button size="lg" className="rounded-lg px-7 text-base font-bold" asChild>
@@ -416,37 +419,42 @@ function WomenFramesPage() {
                 Женские оправы для очков в Санкт-Петербурге
               </h2>
               <p>
-                В салонах Оптики 100% представлено несколько сотен женских оправ — от
-                повседневных моделей за 1 500 ₽ до дизайнерских титановых. В ассортименте
-                оправы для очков для постоянного ношения, для работы за компьютером, для
-                прогрессивных линз и солнцезащитных линз с диоптриями. Каждую модель можно
-                примерить и сразу заказать в неё линзы.
+                В салоне Оптики 100% представлено {totalModels} женских оправ от{" "}
+                {brandList.length} брендов — от повседневных моделей за 2 000 ₽ до дизайнерских
+                титановых. В ассортименте оправы для постоянного ношения, для работы за
+                компьютером, для прогрессивных линз и солнцезащитных линз с диоптриями. Каждую
+                модель можно примерить и сразу заказать в неё линзы.
               </p>
               <p>
-                <strong className="text-foreground">Бренды.</strong> В наличии более 70 брендов.
-                Самые большие коллекции — GUESS, LION`S HEART (23 женские модели: тонкий металл,
-                пластик и титан, цены 3 900–5 000 ₽), FURLA, ST.LOUISE, YALEA, POLAROID, MAX&CO
-                и OKULA. Представлены и дизайнерские марки: CAROLINA HERRERA, ESCADA, MARC
-                JACOBS, MAX MARA, SILHOUETTE, WOOW, BLUMARINE, ETNIA BARCELONA. Полный список
-                брендов с количеством моделей — на первом экране страницы.
+                <strong className="text-foreground">Бренды.</strong> Самая большая коллекция —
+                LION`S HEART (79 женских моделей: тонкий металл, пластик и модели с клипоном).
+                Далее GUESS (36), ANA HICKMANN (23), FURLA (20), VON BOGEN (19), ST.LOUISE (13).
+                Представлены и дизайнерские марки. Полный список брендов с количеством моделей
+                — на первом экране страницы.
               </p>
               <p>
-                <strong className="text-foreground">Формы.</strong> Круглые, овальные,
-                прямоугольные, квадратные и cat-eye. Овальные подходят почти всем, круглые
-                смягчают угловатые черты, прямоугольные и квадратные добавляют лицу
-                структуры, cat-eye подчёркивает скулы и линию брови.
+                <strong className="text-foreground">Формы.</strong> «Кошачий глаз» (145 моделей),
+                прямоугольные (143), бабочка (92), овал (45), многоугольник (44), круглые (36),
+                панто (28) и квадрат (23). Овальные подходят почти всем, круглые смягчают
+                угловатые черты, прямоугольные и квадратные добавляют лицу структуры, «кошачий
+                глаз» подчёркивает скулы и линию брови.
               </p>
               <p>
-                <strong className="text-foreground">Материалы.</strong> Пластик и ацетат держат
-                насыщенный цвет и заметную форму. Тонкий металл почти не виден на лице. Титан
-                — самый лёгкий и гипоаллергенный вариант, его выбирают для постоянного
-                ношения и сложных линз.
+                <strong className="text-foreground">Материалы.</strong> Металл — 254 модели,
+                пластик — 200, ацетат — 64, комбинированные — 42, титан — 28. Пластик и ацетат
+                держат насыщенный цвет и заметную форму, тонкий металл почти не виден на лице,
+                титан — самый лёгкий и гипоаллергенный вариант для постоянного ношения.
               </p>
               <p>
-                <strong className="text-foreground">Цены.</strong> Женские оправы — от 1 500 ₽,
-                металлические и ацетатные модели — 2 200–3 500 ₽, дизайнерские и титановые —
-                от 5 500 ₽. Стоимость готовых очков складывается из оправы и линз, поэтому
-                итоговую сумму специалист считает на приёме — подробности в разделе{" "}
+                <strong className="text-foreground">Размеры.</strong> Ширина ободка 46–61 мм,
+                длина заушника 135–150 мм, ширина переносицы 13–23 мм — есть узкие модели для
+                миниатюрного лица и широкие посадки.
+              </p>
+              <p>
+                <strong className="text-foreground">Цены.</strong> Женские оправы — от 2 000 ₽,
+                большинство моделей — 4 000–8 000 ₽, дизайнерские и титановые — до 42 000 ₽.
+                Стоимость готовых очков складывается из оправы и линз, поэтому итоговую сумму
+                специалист считает на приёме — подробности в разделе{" "}
                 <Link to="/" hash="stoimost" className="font-semibold text-primary underline">
                   стоимость подбора очков
                 </Link>
@@ -501,12 +509,8 @@ function WomenFramesPage() {
             Какие женские оправы представлены в Оптике 100%
           </h2>
           <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {categories.map(([title, text]) => {
-              const active =
-                (filters.shape === title ||
-                  (title === "Пластиковые" && filters.material === "Пластик") ||
-                  (title === "Тонкие металлические" && filters.material === "Металл") ||
-                  (title === "Дизайнерские" && filters.brand === "Ana Hickmann"));
+            {categories.map(([title, text, count]) => {
+              const active = filters.shape === title;
               return (
                 <button
                   key={title}
@@ -520,7 +524,10 @@ function WomenFramesPage() {
                     }`}
                   >
                     <CardContent className="p-5">
-                      <h3 className="text-lg font-semibold">{title}</h3>
+                      <h3 className="text-lg font-semibold">
+                        {title}{" "}
+                        <span className="text-sm font-bold text-primary">{count}</span>
+                      </h3>
                       <p className="mt-2 text-sm text-muted-foreground">{text}</p>
                       <span className="mt-3 inline-block text-sm font-bold text-primary">
                         Смотреть модели →
