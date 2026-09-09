@@ -503,12 +503,8 @@ function WomenFramesPage() {
             Какие женские оправы представлены в Оптике 100%
           </h2>
           <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {categories.map(([title, text]) => {
-              const active =
-                (filters.shape === title ||
-                  (title === "Пластиковые" && filters.material === "Пластик") ||
-                  (title === "Тонкие металлические" && filters.material === "Металл") ||
-                  (title === "Дизайнерские" && filters.brand === "Ana Hickmann"));
+            {categories.map(([title, text, count]) => {
+              const active = filters.shape === title;
               return (
                 <button
                   key={title}
@@ -522,7 +518,10 @@ function WomenFramesPage() {
                     }`}
                   >
                     <CardContent className="p-5">
-                      <h3 className="text-lg font-semibold">{title}</h3>
+                      <h3 className="text-lg font-semibold">
+                        {title}{" "}
+                        <span className="text-sm font-bold text-primary">{count}</span>
+                      </h3>
                       <p className="mt-2 text-sm text-muted-foreground">{text}</p>
                       <span className="mt-3 inline-block text-sm font-bold text-primary">
                         Смотреть модели →
