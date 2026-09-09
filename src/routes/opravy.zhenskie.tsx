@@ -19,14 +19,17 @@ import frameGeo from "@/assets/frame-geo.jpg";
 function shapeImage(shape: string) {
   switch (shape) {
     case "Круглые":
+    case "Панто":
       return frameRound;
-    case "Cat-eye":
     case "Кошачий глаз":
+    case "Бабочка":
       return frameCatEye;
-    case "Овальные":
+    case "Овал":
+    case "Лектор":
       return frameOval;
-    case "Многоугольные":
-    case "Квадратные":
+    case "Многоугольник":
+    case "Квадрат":
+    case "Aviator":
       return frameGeo;
     default:
       return frameRect;
