@@ -45,13 +45,13 @@ export const Route = createFileRoute("/opravy/zhenskie")({
       {
         name: "description",
         content:
-          "Женские оправы для очков в Санкт-Петербурге: круглые, овальные, cat-eye, металлические и пластиковые модели от 1 500 ₽. Фильтры по бренду, форме, цвету и материалу, примерка в салоне.",
+          "Женские оправы для очков в Санкт-Петербурге: 589 моделей 85 брендов — «кошачий глаз», прямоугольные, бабочка, металл, ацетат и титан от 2 000 ₽. Фильтры по бренду, форме, цвету и материалу, примерка в салоне.",
       },
       { property: "og:title", content: "Женские оправы для очков — Оптика 100%" },
       {
         property: "og:description",
         content:
-          "Каталог женских оправ в Санкт-Петербурге: бренды, формы, материалы и цены от 1 500 ₽. Бесплатный подбор оправы у специалиста.",
+          "Каталог женских оправ в Санкт-Петербурге: 85 брендов, 589 моделей, цены от 2 000 ₽. Бесплатный подбор оправы у специалиста.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -251,9 +251,9 @@ const filterLabels: Record<FilterKey, string> = {
 };
 
 const priceRanges = [
-  { label: "до 2 000 ₽", min: 0, max: 2000 },
-  { label: "2 000–4 000 ₽", min: 2000, max: 4000 },
-  { label: "от 4 000 ₽", min: 4000, max: Infinity },
+  { label: "до 4 000 ₽", min: 0, max: 4000 },
+  { label: "4 000–6 000 ₽", min: 4000, max: 6000 },
+  { label: "от 6 000 ₽", min: 6000, max: Infinity },
 ];
 
 function uniq(key: FilterKey) {
@@ -492,8 +492,8 @@ function WomenFramesPage() {
                 </Button>
                 <p className="text-xs text-accent-foreground/80">
                   Или позвоните:{" "}
-                  <a href="tel:+78120000000" className="font-semibold underline">
-                    8 (812) 000-00-00
+                  <a href="tel:88007000214" className="font-semibold underline">
+                    8-800-700-0214
                   </a>
                 </p>
               </CardContent>
@@ -700,7 +700,7 @@ function WomenFramesPage() {
               className="rounded-lg px-7 text-base font-bold text-primary"
               asChild
             >
-              <a href="tel:+78120000000">Позвонить и записаться →</a>
+              <a href="tel:88007000214">Позвонить и записаться →</a>
             </Button>
             <Button
               size="lg"
