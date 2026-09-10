@@ -108,7 +108,6 @@ const frames: Frame[] = [
   { model: "DACCHI 37753-2", brand: "DACCHI", shape: "Панто", material: "Пластик", color: "Бронза/Коричневый", size: "52 мм", price: 2000 },
   { model: "ELFSPIRIT 4386-005", brand: "ELFSPIRIT", shape: "Aviator", material: "Металл", color: "Серебро/Серый/Белый", size: "54 мм", price: 6400 },
   { model: "GLORY 542 BLUE", brand: "GLORY", shape: "Круглые", material: "Металл", color: "Синий/Голубой", size: "48 мм", price: 4000 },
-  { model: "LION`S HEART 3203-C3", brand: "LION`S HEART ДЕТСКИЕ", shape: "Прямоугольные", material: "Pebax", color: "Черный", size: "53 мм", price: 4400 },
   { model: "MONICA MS312453-3", brand: "MONICA", shape: "Прямоугольные", material: "Металл", color: "Серебро/Серый/Белый", size: "54 мм", price: 5300 },
   { model: "SAFILO 1090-YOB", brand: "SAFILO", shape: "Панто", material: "Пластик", color: "Синий/Голубой", size: "49 мм", price: 5400 },
 ];
@@ -185,7 +184,6 @@ const brandList: [string, number][] = [
   ["GLORY", 1],
   ["HERMOSSA", 1],
   ["HUGO BOSS", 1],
-  ["LION`S HEART ДЕТСКИЕ", 1],
   ["LOZZA", 1],
   ["LULU CASTAGNETTE", 1],
   ["MANILA GRACE", 1],
