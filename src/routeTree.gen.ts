@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProgressivnyeLinzyRouteImport } from './routes/progressivnye-linzy'
 import { Route as StellestKatalogSLinzamiRouteImport } from './routes/stellest-katalog-s-linzami'
+import { Route as OpravyLionsHeartRouteImport } from './routes/opravy.lions-heart'
 import { Route as OpravyZhenskieRouteImport } from './routes/opravy.zhenskie'
 
 const IndexRoute = IndexRouteImport.update({
@@ -29,6 +30,11 @@ const StellestKatalogSLinzamiRoute = StellestKatalogSLinzamiRouteImport.update({
   path: '/stellest-katalog-s-linzami',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OpravyLionsHeartRoute = OpravyLionsHeartRouteImport.update({
+  id: '/opravy/lions-heart',
+  path: '/opravy/lions-heart',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const OpravyZhenskieRoute = OpravyZhenskieRouteImport.update({
   id: '/opravy/zhenskie',
   path: '/opravy/zhenskie',
@@ -39,12 +45,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/progressivnye-linzy': typeof ProgressivnyeLinzyRoute
   '/stellest-katalog-s-linzami': typeof StellestKatalogSLinzamiRoute
+  '/opravy/lions-heart': typeof OpravyLionsHeartRoute
   '/opravy/zhenskie': typeof OpravyZhenskieRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/progressivnye-linzy': typeof ProgressivnyeLinzyRoute
   '/stellest-katalog-s-linzami': typeof StellestKatalogSLinzamiRoute
+  '/opravy/lions-heart': typeof OpravyLionsHeartRoute
   '/opravy/zhenskie': typeof OpravyZhenskieRoute
 }
 export interface FileRoutesById {
@@ -52,6 +60,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/progressivnye-linzy': typeof ProgressivnyeLinzyRoute
   '/stellest-katalog-s-linzami': typeof StellestKatalogSLinzamiRoute
+  '/opravy/lions-heart': typeof OpravyLionsHeartRoute
   '/opravy/zhenskie': typeof OpravyZhenskieRoute
 }
 export interface FileRouteTypes {
@@ -60,18 +69,21 @@ export interface FileRouteTypes {
     | '/'
     | '/progressivnye-linzy'
     | '/stellest-katalog-s-linzami'
+    | '/opravy/lions-heart'
     | '/opravy/zhenskie'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/progressivnye-linzy'
     | '/stellest-katalog-s-linzami'
+    | '/opravy/lions-heart'
     | '/opravy/zhenskie'
   id:
     | '__root__'
     | '/'
     | '/progressivnye-linzy'
     | '/stellest-katalog-s-linzami'
+    | '/opravy/lions-heart'
     | '/opravy/zhenskie'
   fileRoutesById: FileRoutesById
 }
@@ -79,6 +91,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ProgressivnyeLinzyRoute: typeof ProgressivnyeLinzyRoute
   StellestKatalogSLinzamiRoute: typeof StellestKatalogSLinzamiRoute
+  OpravyLionsHeartRoute: typeof OpravyLionsHeartRoute
   OpravyZhenskieRoute: typeof OpravyZhenskieRoute
 }
 
@@ -105,6 +118,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StellestKatalogSLinzamiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/opravy/lions-heart': {
+      id: '/opravy/lions-heart'
+      path: '/opravy/lions-heart'
+      fullPath: '/opravy/lions-heart'
+      preLoaderRoute: typeof OpravyLionsHeartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/opravy/zhenskie': {
       id: '/opravy/zhenskie'
       path: '/opravy/zhenskie'
@@ -119,6 +139,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ProgressivnyeLinzyRoute: ProgressivnyeLinzyRoute,
   StellestKatalogSLinzamiRoute: StellestKatalogSLinzamiRoute,
+  OpravyLionsHeartRoute: OpravyLionsHeartRoute,
   OpravyZhenskieRoute: OpravyZhenskieRoute,
 }
 export const routeTree = rootRouteImport
