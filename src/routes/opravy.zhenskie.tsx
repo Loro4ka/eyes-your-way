@@ -391,18 +391,33 @@ function WomenFramesPage() {
             {brandList.map(([brand, count], i) => (
               <li key={brand} className="flex items-center gap-2">
                 {i > 0 && <span className="text-primary/50">›</span>}
-                <button
-                  type="button"
-                  onClick={() => selectBrand(brand)}
-                  className={`cursor-pointer transition-colors hover:text-primary ${
-                    isBrandActive(brand) ? "text-primary underline underline-offset-4" : ""
-                  }`}
-                >
-                  {brand}
-                  <span className="ml-1 align-super text-[10px] font-bold normal-case text-primary/70">
-                    {count}
-                  </span>
-                </button>
+                {brand === "LION`S HEART" ? (
+                  <Link
+                    to="/opravy/lions-heart"
+                    title="Страница бренда LION`S HEART"
+                    className={`cursor-pointer transition-colors hover:text-primary ${
+                      isBrandActive(brand) ? "text-primary underline underline-offset-4" : ""
+                    }`}
+                  >
+                    {brand}
+                    <span className="ml-1 align-super text-[10px] font-bold normal-case text-primary/70">
+                      {count}
+                    </span>
+                  </Link>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => selectBrand(brand)}
+                    className={`cursor-pointer transition-colors hover:text-primary ${
+                      isBrandActive(brand) ? "text-primary underline underline-offset-4" : ""
+                    }`}
+                  >
+                    {brand}
+                    <span className="ml-1 align-super text-[10px] font-bold normal-case text-primary/70">
+                      {count}
+                    </span>
+                  </button>
+                )}
               </li>
             ))}
           </ol>

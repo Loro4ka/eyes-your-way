@@ -123,6 +123,7 @@ function RootShell({ children }: { children: ReactNode }) {
 const navItems = [
   { label: "Подбор очков", href: "/" },
   { label: "Женские оправы", href: "/opravy/zhenskie" },
+  { label: "LION`S HEART", href: "/opravy/lions-heart" },
   { label: "Линзы Stellest", href: "/stellest-katalog-s-linzami" },
   { label: "Прогрессивные линзы", href: "/progressivnye-linzy" },
   { label: "Стоимость", href: "/#stoimost" },
@@ -184,6 +185,11 @@ function SiteFooter() {
             <li>
               <Link to="/opravy/zhenskie" className="hover:text-primary">
                 Женские оправы
+              </Link>
+            </li>
+            <li>
+              <Link to="/opravy/lions-heart" className="hover:text-primary">
+                Оправы LION`S HEART
               </Link>
             </li>
             <li>
