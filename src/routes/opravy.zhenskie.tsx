@@ -439,8 +439,14 @@ function WomenFramesPage() {
                 модель можно примерить и сразу заказать в неё линзы.
               </p>
               <p>
-                <strong className="text-foreground">Бренды.</strong> Самая большая коллекция —
-                LION`S HEART (79 женских моделей: тонкий металл, пластик и модели с клипоном).
+                <strong className="text-foreground">Бренды.</strong> Самая большая коллекция —{" "}
+                <Link
+                  to="/opravy/lions-heart"
+                  className="font-semibold text-primary underline"
+                >
+                  LION`S HEART
+                </Link>{" "}
+                (79 женских моделей: тонкий металл, пластик и модели с клипоном).
                 Далее GUESS (36), ANA HICKMANN (23), FURLA (20), VON BOGEN (19), ST.LOUISE (13).
                 Представлены и дизайнерские марки. Полный список брендов с количеством моделей
                 — на первом экране страницы.
@@ -624,9 +630,18 @@ function WomenFramesPage() {
 
                     <div className="flex items-start justify-between gap-2">
                       <div>
-                        <p className="text-xs font-semibold uppercase tracking-wide text-primary">
-                          {f.brand}
-                        </p>
+                        {f.brand === "LION`S HEART" ? (
+                          <Link
+                            to="/opravy/lions-heart"
+                            className="text-xs font-semibold uppercase tracking-wide text-primary hover:underline"
+                          >
+                            {f.brand}
+                          </Link>
+                        ) : (
+                          <p className="text-xs font-semibold uppercase tracking-wide text-primary">
+                            {f.brand}
+                          </p>
+                        )}
                         <h3 className="mt-1 text-base font-semibold">{f.model}</h3>
                       </div>
                       <Badge variant="secondary">{f.size}</Badge>
@@ -661,7 +676,7 @@ function WomenFramesPage() {
       {/* Перелинковка */}
       <section className="mx-auto max-w-6xl px-5 py-14">
         <h2 className="heading-bar text-3xl md:text-4xl">Смотрите также</h2>
-        <div className="mt-8 grid gap-5 md:grid-cols-3">
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {([
             ["Подбор очков в Санкт-Петербурге", "Как проходит приём, диагностика и подбор линз.", "kak"],
             ["Стоимость подбора очков", "Что входит в услугу и сколько занимает по времени.", "stoimost"],
@@ -679,6 +694,18 @@ function WomenFramesPage() {
               </CardContent>
             </Card>
           ))}
+          <Card className="transition-shadow hover:shadow-md">
+            <CardContent className="p-5">
+              <h3 className="text-lg font-semibold">
+                <Link to="/opravy/lions-heart" className="hover:text-primary">
+                  Оправы LION`S HEART
+                </Link>
+              </h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                79 женских моделей — металл, пластик и клипоны от 2 300 ₽.
+              </p>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
