@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as LinzyDlyaKontrolyaMiopiiRouteImport } from './routes/linzy-dlya-kontrolya-miopii'
 import { Route as ProgressivnyeLinzyRouteImport } from './routes/progressivnye-linzy'
 import { Route as StellestKatalogSLinzamiRouteImport } from './routes/stellest-katalog-s-linzami'
 import { Route as OpravyLionsHeartRouteImport } from './routes/opravy.lions-heart'
@@ -20,6 +21,12 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LinzyDlyaKontrolyaMiopiiRoute =
+  LinzyDlyaKontrolyaMiopiiRouteImport.update({
+    id: '/linzy-dlya-kontrolya-miopii',
+    path: '/linzy-dlya-kontrolya-miopii',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ProgressivnyeLinzyRoute = ProgressivnyeLinzyRouteImport.update({
   id: '/progressivnye-linzy',
   path: '/progressivnye-linzy',
@@ -43,6 +50,7 @@ const OpravyZhenskieRoute = OpravyZhenskieRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/linzy-dlya-kontrolya-miopii': typeof LinzyDlyaKontrolyaMiopiiRoute
   '/progressivnye-linzy': typeof ProgressivnyeLinzyRoute
   '/stellest-katalog-s-linzami': typeof StellestKatalogSLinzamiRoute
   '/opravy/lions-heart': typeof OpravyLionsHeartRoute
@@ -50,6 +58,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/linzy-dlya-kontrolya-miopii': typeof LinzyDlyaKontrolyaMiopiiRoute
   '/progressivnye-linzy': typeof ProgressivnyeLinzyRoute
   '/stellest-katalog-s-linzami': typeof StellestKatalogSLinzamiRoute
   '/opravy/lions-heart': typeof OpravyLionsHeartRoute
@@ -58,6 +67,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/linzy-dlya-kontrolya-miopii': typeof LinzyDlyaKontrolyaMiopiiRoute
   '/progressivnye-linzy': typeof ProgressivnyeLinzyRoute
   '/stellest-katalog-s-linzami': typeof StellestKatalogSLinzamiRoute
   '/opravy/lions-heart': typeof OpravyLionsHeartRoute
@@ -67,6 +77,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/linzy-dlya-kontrolya-miopii'
     | '/progressivnye-linzy'
     | '/stellest-katalog-s-linzami'
     | '/opravy/lions-heart'
@@ -74,6 +85,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/linzy-dlya-kontrolya-miopii'
     | '/progressivnye-linzy'
     | '/stellest-katalog-s-linzami'
     | '/opravy/lions-heart'
@@ -81,6 +93,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/linzy-dlya-kontrolya-miopii'
     | '/progressivnye-linzy'
     | '/stellest-katalog-s-linzami'
     | '/opravy/lions-heart'
@@ -89,6 +102,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LinzyDlyaKontrolyaMiopiiRoute: typeof LinzyDlyaKontrolyaMiopiiRoute
   ProgressivnyeLinzyRoute: typeof ProgressivnyeLinzyRoute
   StellestKatalogSLinzamiRoute: typeof StellestKatalogSLinzamiRoute
   OpravyLionsHeartRoute: typeof OpravyLionsHeartRoute
@@ -102,6 +116,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/linzy-dlya-kontrolya-miopii': {
+      id: '/linzy-dlya-kontrolya-miopii'
+      path: '/linzy-dlya-kontrolya-miopii'
+      fullPath: '/linzy-dlya-kontrolya-miopii'
+      preLoaderRoute: typeof LinzyDlyaKontrolyaMiopiiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/progressivnye-linzy': {
@@ -137,6 +158,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LinzyDlyaKontrolyaMiopiiRoute: LinzyDlyaKontrolyaMiopiiRoute,
   ProgressivnyeLinzyRoute: ProgressivnyeLinzyRoute,
   StellestKatalogSLinzamiRoute: StellestKatalogSLinzamiRoute,
   OpravyLionsHeartRoute: OpravyLionsHeartRoute,

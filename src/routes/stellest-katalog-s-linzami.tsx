@@ -162,6 +162,8 @@ function StellestPage() {
             </Link>
           </li>
           <li aria-hidden>›</li>
+          <li><Link to="/linzy-dlya-kontrolya-miopii" className="hover:text-primary">Контроль миопии</Link></li>
+          <li aria-hidden>›</li>
           <li className="font-medium text-foreground">Линзы Stellest</li>
         </ol>
       </nav>
