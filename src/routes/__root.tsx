@@ -77,14 +77,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Оптика 100% — очки и линзы в Санкт-Петербурге" },
+      { name: "description", content: "Подбор очков и линз в Оптике 100%: Санкт-Петербург, ул. Кирочная, 17." },
+      { name: "author", content: "Оптика 100%" },
+      { property: "og:title", content: "Оптика 100% — очки и линзы" },
+      { property: "og:description", content: "Подбор очков и линз в Санкт-Петербурге, ул. Кирочная, 17." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
@@ -108,7 +107,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="ru">
       <head>
         <HeadContent />
       </head>
@@ -125,6 +124,7 @@ const navItems = [
   { label: "Женские оправы", href: "/opravy/zhenskie" },
   { label: "LION`S HEART", href: "/opravy/lions-heart" },
   { label: "Линзы Stellest", href: "/stellest-katalog-s-linzami" },
+  { label: "Контроль миопии", href: "/linzy-dlya-kontrolya-miopii" },
   { label: "Прогрессивные линзы", href: "/progressivnye-linzy" },
   { label: "Стоимость", href: "/#stoimost" },
   { label: "Пошагово", href: "/#kak" },
@@ -207,6 +207,11 @@ function SiteFooter() {
         <div>
           <p className="font-semibold text-foreground">Услуги</p>
           <ul className="mt-2 space-y-1">
+            <li>
+              <Link to="/linzy-dlya-kontrolya-miopii" className="hover:text-primary">
+                Линзы для контроля миопии
+              </Link>
+            </li>
             <li>
               <Link to="/" hash="stoimost" className="hover:text-primary">
                 Стоимость подбора

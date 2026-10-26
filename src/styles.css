@@ -200,3 +200,15 @@
     background: var(--brand);
   }
 }
+
+:root {
+  --myopia-hero-overlay: linear-gradient(90deg, color-mix(in oklab, var(--background) 96%, transparent) 0%, color-mix(in oklab, var(--background) 90%, transparent) 34%, color-mix(in oklab, var(--background) 15%, transparent) 70%, transparent 100%);
+}
+
+.myopia-hero-shade { background: var(--myopia-hero-overlay); }
+.myopia-hero h1, .myopia-hero h2, .myopia-product h3 { letter-spacing: 0; }
+
+@media (max-width: 767px) {
+  .myopia-hero > img { opacity: 0.18; }
+  .myopia-hero-shade { background: color-mix(in oklab, var(--background) 65%, transparent); }
+}
