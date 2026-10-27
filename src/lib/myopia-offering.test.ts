@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import { deepStrictEqual, strictEqual } from "node:assert";
-import { childServices, contactLenses, myopiaClinic, spectacleLenses } from "./myopia-offering";
+import { childServices, contactLenses, myopiaClinic, spectacleLenses } from "./myopia-offering.ts";
 
 describe("Requested myopia offering", () => {
   it("includes the three spectacle manufacturers and their four named lenses", () => {
