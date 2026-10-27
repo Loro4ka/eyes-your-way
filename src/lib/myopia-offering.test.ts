@@ -21,3 +21,11 @@ describe("Requested myopia offering", () => {
     strictEqual(myopiaClinic.address, "Санкт-Петербург, ул. Кирочная, 17");
   });
 });
+describe("Catalog prices from optika100.com", () => {
+  it("shows the lowest catalog price per lens", () => {
+    deepStrictEqual([...spectacleLenses, ...contactLenses].map((l) => l.price), [
+      "от 20 600 ₽ за пару", "от 18 700 ₽ за пару", "от 16 800 ₽ за пару", "от 19 900 ₽ за пару",
+      "от 3 200 ₽ (30 шт.)", "от 2 400 ₽ (32 шт.)", "от 4 900 ₽ (6 шт.)",
+    ]);
+  });
+});
