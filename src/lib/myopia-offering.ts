@@ -1,5 +1,5 @@
-export const spectacleCatalogUrl = "https://beta.optika100.com/catalog_s/linzy_dlya_ochkov/?lensType=%D0%9A%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D1%8C+%D0%BC%D0%B8%D0%BE%D0%BF%D0%B8%D0%B8&expand=lensType";
-export const contactCatalogUrl = "https://beta.optika100.com/catalog_s/kontaktnye_linzy_/dlya_kontrolya_miopii/";
+export const spectacleCatalogUrl = "https://optika100.com/catalog_s/linzy_dlya_ochkov/?lensType=%D0%9A%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D1%8C+%D0%BC%D0%B8%D0%BE%D0%BF%D0%B8%D0%B8&expand=lensType";
+export const contactCatalogUrl = "https://optika100.com/catalog_s/kontaktnye_linzy_/dlya_kontrolya_miopii/";
 
 export const spectacleLenses = [
   { manufacturer: "Essilor", model: "Stellest", technology: "H.A.L.T.", description: "Центральная зона корректирует близорукость, а окружающие её асферические микролинзы создают оптический сигнал для контроля прогрессирования миопии.", note: "Выбор оправы и точная центровка — часть подбора." },
