@@ -35,3 +35,13 @@ describe("Separate product pages", () => {
     deepStrictEqual(myopiaProductPages.map((p) => p.slug), ["myopilux-plus", "myocare", "miyosmart", "misight", "seed-1-day-pure-edof", "prima-bio-bi-focal"]);
   });
 });
+describe("Catalog buttons open the matching model", () => {
+  it("uses model-specific catalog links", () => {
+    const byModel = Object.fromEntries(myopiaProductPages.map((p) => [p.model, p.catalogUrl]));
+    strictEqual(byModel["MiSight"], "https://optika100.com/catalog_s/kontaktnye_linzy_/dlya_kontrolya_miopii/misight_1_day_30sht_/");
+    strictEqual(byModel["Prima Bio Bi-focal"], "https://optika100.com/catalog_s/kontaktnye_linzy_/dlya_kontrolya_miopii/prima_bio_bi_focal_6sht_/");
+    strictEqual(byModel["SEED 1 DAY Pure EDOF"]?.endsWith("seed_1_day_pure_edof_32sht_1/"), true);
+    strictEqual(byModel["MiYOSMART"]?.endsWith("technology=MiYOSMART"), true);
+    strictEqual(byModel["MyoCare"]?.endsWith("brand=ZEISS"), true);
+  });
+});
