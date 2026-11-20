@@ -29,3 +29,9 @@ describe("Catalog prices from optika100.com", () => {
     ]);
   });
 });
+import { myopiaProductPages } from "./myopia-offering.ts";
+describe("Separate product pages", () => {
+  it("exist for the six requested lenses", () => {
+    deepStrictEqual(myopiaProductPages.map((p) => p.slug), ["myopilux-plus", "myocare", "miyosmart", "misight", "seed-1-day-pure-edof", "prima-bio-bi-focal"]);
+  });
+});

@@ -2,16 +2,16 @@ export const spectacleCatalogUrl = "https://optika100.com/catalog_s/linzy_dlya_o
 export const contactCatalogUrl = "https://optika100.com/catalog_s/kontaktnye_linzy_/dlya_kontrolya_miopii/";
 
 export const spectacleLenses = [
-  { manufacturer: "Essilor", model: "Stellest", price: "от 20 600 ₽ за пару", technology: "H.A.L.T.", description: "Центральная зона корректирует близорукость, а окружающие её асферические микролинзы создают оптический сигнал для контроля прогрессирования миопии.", note: "Выбор оправы и точная центровка — часть подбора." },
-  { manufacturer: "Essilor", model: "Myopilux Plus", price: "от 18 700 ₽ за пару", technology: "Поддержка зрения вблизи", description: "Детские линзы с дополнительной оптической силой для близи. Применение обсуждается с врачом с учётом аккомодации и совместной работы глаз.", note: "Не аналог Stellest: другой дизайн и показания." },
-  { manufacturer: "ZEISS", model: "MyoCare", price: "от 16 800 ₽ за пару", technology: "C.A.R.E.", description: "Очковые линзы с центральной зоной коррекции и кольцевыми оптическими элементами для контроля миопии у детей.", note: "Подходящий вариант линзы определяет специалист." },
-  { manufacturer: "Hoya", model: "MiYOSMART", price: "от 19 900 ₽ за пару", technology: "D.I.M.S.", description: "Центральная зона обеспечивает коррекцию зрения, а многочисленные сегменты вокруг неё формируют миопический дефокус.", note: "Необходимы правильная посадка очков и соблюдение режима ношения." },
+  { manufacturer: "Essilor", model: "Stellest", slug: "stellest", price: "от 20 600 ₽ за пару", technology: "H.A.L.T.", description: "Центральная зона корректирует близорукость, а окружающие её асферические микролинзы создают оптический сигнал для контроля прогрессирования миопии.", note: "Выбор оправы и точная центровка — часть подбора." },
+  { manufacturer: "Essilor", model: "Myopilux Plus", slug: "myopilux-plus", price: "от 18 700 ₽ за пару", technology: "Поддержка зрения вблизи", description: "Детские линзы с дополнительной оптической силой для близи. Применение обсуждается с врачом с учётом аккомодации и совместной работы глаз.", note: "Не аналог Stellest: другой дизайн и показания." },
+  { manufacturer: "ZEISS", model: "MyoCare", slug: "myocare", price: "от 16 800 ₽ за пару", technology: "C.A.R.E.", description: "Очковые линзы с центральной зоной коррекции и кольцевыми оптическими элементами для контроля миопии у детей.", note: "Подходящий вариант линзы определяет специалист." },
+  { manufacturer: "Hoya", model: "MiYOSMART", slug: "miyosmart", price: "от 19 900 ₽ за пару", technology: "D.I.M.S.", description: "Центральная зона обеспечивает коррекцию зрения, а многочисленные сегменты вокруг неё формируют миопический дефокус.", note: "Необходимы правильная посадка очков и соблюдение режима ношения." },
 ] as const;
 
 export const contactLenses = [
-  { manufacturer: "Cooper Vision", model: "MiSight", price: "от 3 200 ₽ (30 шт.)", technology: "Двухфокусный дизайн", description: "Мягкие однодневные контактные линзы с зонами коррекции зрения и зонами миопического дефокуса.", note: "Новая пара каждый день; подбор и обучение у специалиста." },
-  { manufacturer: "Seed", model: "SEED 1 DAY Pure EDOF", price: "от 2 400 ₽ (32 шт.)", technology: "EDOF", description: "Однодневные контактные линзы с расширенной глубиной фокуса. Возможность применения для конкретного ребёнка оценивает врач.", note: "Не требуют хранения и очистки: после снятия линзы утилизируют." },
-  { manufacturer: "OKVision", model: "Prima Bio Bi-focal", price: "от 4 900 ₽ (6 шт.)", technology: "Бифокальный дизайн", description: "Мягкие бифокальные контактные линзы. Параметры, режим замены и применимость для контроля миопии уточняются при подборе.", note: "Уход и сроки замены — по инструкции к выбранной линзе." },
+  { manufacturer: "Cooper Vision", model: "MiSight", slug: "misight", price: "от 3 200 ₽ (30 шт.)", technology: "Двухфокусный дизайн", description: "Мягкие однодневные контактные линзы с зонами коррекции зрения и зонами миопического дефокуса.", note: "Новая пара каждый день; подбор и обучение у специалиста." },
+  { manufacturer: "Seed", model: "SEED 1 DAY Pure EDOF", slug: "seed-1-day-pure-edof", price: "от 2 400 ₽ (32 шт.)", technology: "EDOF", description: "Однодневные контактные линзы с расширенной глубиной фокуса. Возможность применения для конкретного ребёнка оценивает врач.", note: "Не требуют хранения и очистки: после снятия линзы утилизируют." },
+  { manufacturer: "OKVision", model: "Prima Bio Bi-focal", slug: "prima-bio-bi-focal", price: "от 4 900 ₽ (6 шт.)", technology: "Бифокальный дизайн", description: "Мягкие бифокальные контактные линзы. Параметры, режим замены и применимость для контроля миопии уточняются при подборе.", note: "Уход и сроки замены — по инструкции к выбранной линзе." },
 ] as const;
 
 export const childServices = [
@@ -20,3 +20,7 @@ export const childServices = [
 ] as const;
 
 export const myopiaClinic = { address: "Санкт-Петербург, ул. Кирочная, 17", metro: "м. Чернышевская", hours: "Ежедневно 10:00–20:00", phone: "8-800-700-0214", phoneHref: "tel:88007000214" } as const;
+export const myopiaProductPages = [
+  ...spectacleLenses.filter((l) => l.slug !== "stellest").map((l) => ({ ...l, kind: "Линзы для очков", catalogUrl: spectacleCatalogUrl })),
+  ...contactLenses.map((l) => ({ ...l, kind: "Контактные линзы", catalogUrl: contactCatalogUrl })),
+];

@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as LinzyDlyaKontrolyaMiopiiRouteImport } from './routes/linzy-dlya-kontrolya-miopii'
 import { Route as ProgressivnyeLinzyRouteImport } from './routes/progressivnye-linzy'
 import { Route as StellestKatalogSLinzamiRouteImport } from './routes/stellest-katalog-s-linzami'
+import { Route as LinzyDlyaKontrolyaMiopiiSlugRouteImport } from './routes/linzy-dlya-kontrolya-miopii_.$slug'
 import { Route as OpravyLionsHeartRouteImport } from './routes/opravy.lions-heart'
 import { Route as OpravyZhenskieRouteImport } from './routes/opravy.zhenskie'
 
@@ -37,6 +38,12 @@ const StellestKatalogSLinzamiRoute = StellestKatalogSLinzamiRouteImport.update({
   path: '/stellest-katalog-s-linzami',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LinzyDlyaKontrolyaMiopiiSlugRoute =
+  LinzyDlyaKontrolyaMiopiiSlugRouteImport.update({
+    id: '/linzy-dlya-kontrolya-miopii_/$slug',
+    path: '/linzy-dlya-kontrolya-miopii/$slug',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const OpravyLionsHeartRoute = OpravyLionsHeartRouteImport.update({
   id: '/opravy/lions-heart',
   path: '/opravy/lions-heart',
@@ -53,6 +60,7 @@ export interface FileRoutesByFullPath {
   '/linzy-dlya-kontrolya-miopii': typeof LinzyDlyaKontrolyaMiopiiRoute
   '/progressivnye-linzy': typeof ProgressivnyeLinzyRoute
   '/stellest-katalog-s-linzami': typeof StellestKatalogSLinzamiRoute
+  '/linzy-dlya-kontrolya-miopii/$slug': typeof LinzyDlyaKontrolyaMiopiiSlugRoute
   '/opravy/lions-heart': typeof OpravyLionsHeartRoute
   '/opravy/zhenskie': typeof OpravyZhenskieRoute
 }
@@ -61,6 +69,7 @@ export interface FileRoutesByTo {
   '/linzy-dlya-kontrolya-miopii': typeof LinzyDlyaKontrolyaMiopiiRoute
   '/progressivnye-linzy': typeof ProgressivnyeLinzyRoute
   '/stellest-katalog-s-linzami': typeof StellestKatalogSLinzamiRoute
+  '/linzy-dlya-kontrolya-miopii/$slug': typeof LinzyDlyaKontrolyaMiopiiSlugRoute
   '/opravy/lions-heart': typeof OpravyLionsHeartRoute
   '/opravy/zhenskie': typeof OpravyZhenskieRoute
 }
@@ -70,6 +79,7 @@ export interface FileRoutesById {
   '/linzy-dlya-kontrolya-miopii': typeof LinzyDlyaKontrolyaMiopiiRoute
   '/progressivnye-linzy': typeof ProgressivnyeLinzyRoute
   '/stellest-katalog-s-linzami': typeof StellestKatalogSLinzamiRoute
+  '/linzy-dlya-kontrolya-miopii_/$slug': typeof LinzyDlyaKontrolyaMiopiiSlugRoute
   '/opravy/lions-heart': typeof OpravyLionsHeartRoute
   '/opravy/zhenskie': typeof OpravyZhenskieRoute
 }
@@ -80,6 +90,7 @@ export interface FileRouteTypes {
     | '/linzy-dlya-kontrolya-miopii'
     | '/progressivnye-linzy'
     | '/stellest-katalog-s-linzami'
+    | '/linzy-dlya-kontrolya-miopii/$slug'
     | '/opravy/lions-heart'
     | '/opravy/zhenskie'
   fileRoutesByTo: FileRoutesByTo
@@ -88,6 +99,7 @@ export interface FileRouteTypes {
     | '/linzy-dlya-kontrolya-miopii'
     | '/progressivnye-linzy'
     | '/stellest-katalog-s-linzami'
+    | '/linzy-dlya-kontrolya-miopii/$slug'
     | '/opravy/lions-heart'
     | '/opravy/zhenskie'
   id:
@@ -96,6 +108,7 @@ export interface FileRouteTypes {
     | '/linzy-dlya-kontrolya-miopii'
     | '/progressivnye-linzy'
     | '/stellest-katalog-s-linzami'
+    | '/linzy-dlya-kontrolya-miopii_/$slug'
     | '/opravy/lions-heart'
     | '/opravy/zhenskie'
   fileRoutesById: FileRoutesById
@@ -105,6 +118,7 @@ export interface RootRouteChildren {
   LinzyDlyaKontrolyaMiopiiRoute: typeof LinzyDlyaKontrolyaMiopiiRoute
   ProgressivnyeLinzyRoute: typeof ProgressivnyeLinzyRoute
   StellestKatalogSLinzamiRoute: typeof StellestKatalogSLinzamiRoute
+  LinzyDlyaKontrolyaMiopiiSlugRoute: typeof LinzyDlyaKontrolyaMiopiiSlugRoute
   OpravyLionsHeartRoute: typeof OpravyLionsHeartRoute
   OpravyZhenskieRoute: typeof OpravyZhenskieRoute
 }
@@ -139,6 +153,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StellestKatalogSLinzamiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/linzy-dlya-kontrolya-miopii_/$slug': {
+      id: '/linzy-dlya-kontrolya-miopii_/$slug'
+      path: '/linzy-dlya-kontrolya-miopii/$slug'
+      fullPath: '/linzy-dlya-kontrolya-miopii/$slug'
+      preLoaderRoute: typeof LinzyDlyaKontrolyaMiopiiSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/opravy/lions-heart': {
       id: '/opravy/lions-heart'
       path: '/opravy/lions-heart'
@@ -161,6 +182,7 @@ const rootRouteChildren: RootRouteChildren = {
   LinzyDlyaKontrolyaMiopiiRoute: LinzyDlyaKontrolyaMiopiiRoute,
   ProgressivnyeLinzyRoute: ProgressivnyeLinzyRoute,
   StellestKatalogSLinzamiRoute: StellestKatalogSLinzamiRoute,
+  LinzyDlyaKontrolyaMiopiiSlugRoute: LinzyDlyaKontrolyaMiopiiSlugRoute,
   OpravyLionsHeartRoute: OpravyLionsHeartRoute,
   OpravyZhenskieRoute: OpravyZhenskieRoute,
 }
