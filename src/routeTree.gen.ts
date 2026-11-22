@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BiometriyaLenstarRouteImport } from './routes/biometriya-lenstar'
 import { Route as LinzyDlyaKontrolyaMiopiiRouteImport } from './routes/linzy-dlya-kontrolya-miopii'
 import { Route as ProgressivnyeLinzyRouteImport } from './routes/progressivnye-linzy'
 import { Route as StellestKatalogSLinzamiRouteImport } from './routes/stellest-katalog-s-linzami'
@@ -20,6 +21,11 @@ import { Route as OpravyZhenskieRouteImport } from './routes/opravy.zhenskie'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BiometriyaLenstarRoute = BiometriyaLenstarRouteImport.update({
+  id: '/biometriya-lenstar',
+  path: '/biometriya-lenstar',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LinzyDlyaKontrolyaMiopiiRoute =
@@ -57,6 +63,7 @@ const OpravyZhenskieRoute = OpravyZhenskieRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/biometriya-lenstar': typeof BiometriyaLenstarRoute
   '/linzy-dlya-kontrolya-miopii': typeof LinzyDlyaKontrolyaMiopiiRoute
   '/progressivnye-linzy': typeof ProgressivnyeLinzyRoute
   '/stellest-katalog-s-linzami': typeof StellestKatalogSLinzamiRoute
@@ -66,6 +73,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/biometriya-lenstar': typeof BiometriyaLenstarRoute
   '/linzy-dlya-kontrolya-miopii': typeof LinzyDlyaKontrolyaMiopiiRoute
   '/progressivnye-linzy': typeof ProgressivnyeLinzyRoute
   '/stellest-katalog-s-linzami': typeof StellestKatalogSLinzamiRoute
@@ -76,6 +84,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/biometriya-lenstar': typeof BiometriyaLenstarRoute
   '/linzy-dlya-kontrolya-miopii': typeof LinzyDlyaKontrolyaMiopiiRoute
   '/progressivnye-linzy': typeof ProgressivnyeLinzyRoute
   '/stellest-katalog-s-linzami': typeof StellestKatalogSLinzamiRoute
@@ -87,6 +96,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/biometriya-lenstar'
     | '/linzy-dlya-kontrolya-miopii'
     | '/progressivnye-linzy'
     | '/stellest-katalog-s-linzami'
@@ -96,6 +106,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/biometriya-lenstar'
     | '/linzy-dlya-kontrolya-miopii'
     | '/progressivnye-linzy'
     | '/stellest-katalog-s-linzami'
@@ -105,6 +116,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/biometriya-lenstar'
     | '/linzy-dlya-kontrolya-miopii'
     | '/progressivnye-linzy'
     | '/stellest-katalog-s-linzami'
@@ -115,6 +127,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BiometriyaLenstarRoute: typeof BiometriyaLenstarRoute
   LinzyDlyaKontrolyaMiopiiRoute: typeof LinzyDlyaKontrolyaMiopiiRoute
   ProgressivnyeLinzyRoute: typeof ProgressivnyeLinzyRoute
   StellestKatalogSLinzamiRoute: typeof StellestKatalogSLinzamiRoute
@@ -130,6 +143,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/biometriya-lenstar': {
+      id: '/biometriya-lenstar'
+      path: '/biometriya-lenstar'
+      fullPath: '/biometriya-lenstar'
+      preLoaderRoute: typeof BiometriyaLenstarRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/linzy-dlya-kontrolya-miopii': {
@@ -179,6 +199,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BiometriyaLenstarRoute: BiometriyaLenstarRoute,
   LinzyDlyaKontrolyaMiopiiRoute: LinzyDlyaKontrolyaMiopiiRoute,
   ProgressivnyeLinzyRoute: ProgressivnyeLinzyRoute,
   StellestKatalogSLinzamiRoute: StellestKatalogSLinzamiRoute,

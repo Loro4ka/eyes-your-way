@@ -45,3 +45,15 @@ describe("Catalog buttons open the matching model", () => {
     strictEqual(byModel["MyoCare"]?.endsWith("brand=ZEISS"), true);
   });
 });
+import { biometryService } from "./myopia-offering.ts";
+describe("Dedicated Lenstar LS 900 biometry page data", () => {
+  it("names the Swiss device and its key myopia measurement", () => {
+    strictEqual(biometryService.device, "Lenstar LS 900");
+    strictEqual(biometryService.origin, "Швейцария");
+    strictEqual(biometryService.measures[0]?.name, "Осевая длина глаза");
+  });
+  it("does not promise a cure or a guaranteed result", () => {
+    strictEqual(biometryService.disclaimer.includes("не излечивает миопию"), true);
+    strictEqual(biometryService.disclaimer.includes("не гарантирует"), true);
+  });
+});

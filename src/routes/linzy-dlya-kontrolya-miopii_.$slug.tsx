@@ -45,7 +45,7 @@ function ProductPage() {
           <h2 className="heading-bar text-2xl">Как подобрать {p.model}</h2>
           <ol className="mt-4 list-decimal space-y-2 pl-5 text-muted-foreground">
             <li>Приём детского врача: проверка зрения и рефракции.</li>
-            <li>Биометрия Lenstar LS 900 — измерение длины глаза для контроля динамики.</li>
+            <li><Link to="/biometriya-lenstar" className="hover:text-primary">Биометрия Lenstar LS 900</Link> — измерение длины глаза для контроля динамики.</li>
             <li>Выбор линзы врачом и обучение ношению.</li>
             <li>Повторные визиты для оценки результата.</li>
           </ol>

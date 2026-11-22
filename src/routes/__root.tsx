@@ -126,6 +126,7 @@ const navItems = [
   { label: "LION`S HEART", href: "/opravy/lions-heart" },
   { label: "Линзы Stellest", href: "/stellest-katalog-s-linzami" },
   { label: "Контроль миопии", href: "/linzy-dlya-kontrolya-miopii" },
+  { label: "Биометрия Lenstar", href: "/biometriya-lenstar" },
   { label: "Прогрессивные линзы", href: "/progressivnye-linzy" },
   { label: "Стоимость", href: "/#stoimost" },
   { label: "Пошагово", href: "/#kak" },
@@ -211,6 +212,11 @@ function SiteFooter() {
             <li>
               <Link to="/linzy-dlya-kontrolya-miopii" className="hover:text-primary">
                 Линзы для контроля миопии
+              </Link>
+            </li>
+            <li>
+              <Link to="/biometriya-lenstar" className="hover:text-primary">
+                Биометрия Lenstar LS 900
               </Link>
             </li>
             <li>
